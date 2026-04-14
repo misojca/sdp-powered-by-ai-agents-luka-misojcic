@@ -1,0 +1,17 @@
+@startuml c4-context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title System Context Diagram — Parking Lot
+
+Person(driver, "Driver", "A person who wants to park their vehicle.")
+
+System(parkingLot, "Parking Lot System", "Manages entry/exit, spot availability, and payments.")
+
+System_Ext(paymentGateway, "Payment Gateway", "Processes parking fee transactions.")
+System_Ext(displayBoard, "Display Board System", "Shows available spots to incoming drivers.")
+
+Rel(driver, parkingLot, "Enters, parks, pays, exits", "Kiosk / Web UI")
+Rel(parkingLot, paymentGateway, "Processes payments", "HTTPS")
+Rel(parkingLot, displayBoard, "Pushes availability updates", "HTTPS")
+
+@enduml
