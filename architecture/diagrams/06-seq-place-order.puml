@@ -1,0 +1,35 @@
+@startuml 06-seq-place-order
+title Sequence — Place Order
+
+actor Customer
+participant "React SPA" as SPA
+participant "Auth Middleware" as Auth
+participant "Orders Service" as Orders
+participant "Payment Service" as Payment
+participant "Notifications Service" as Notif
+database PostgreSQL
+database Redis
+participant Stripe
+
+Customer -> SPA: Submit cart checkout
+SPA -> Auth: POST /orders (JWT)
+Auth -> Auth: Validate JWT
+Auth -> Orders: Forward request
+
+Orders -> PostgreSQL: BEGIN transaction
+Orders -> PostgreSQL: SELECT stock FOR UPDATE
+Orders -> PostgreSQL: Decrement stock
+Orders -> PostgreSQL: INSERT order (PENDING)
+Orders -> PostgreSQL: COMMIT
+
+Orders -> Notif: Enqueue "order received" email
+Notif -> Redis: LPUSH email job
+
+Orders -> Payment: Create Payment Intent
+Payment -> Stripe: POST /payment_intents
+Stripe --> Payment: { client_secret }
+Payment --> Orders: client_secret
+Orders --> SPA: { orderId, client_secret }
+
+SPA -> Stripe: Confirm payment (client-side)
+@enduml

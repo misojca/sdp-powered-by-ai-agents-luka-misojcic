@@ -1,0 +1,44 @@
+@startuml 05-containers
+title Container Diagram — Online Bookstore
+
+skinparam rectangle {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+  FontSize 12
+}
+skinparam database {
+  BackgroundColor #fff2cc
+  BorderColor #d6b656
+}
+skinparam actor {
+  BackgroundColor #d5e8d4
+  BorderColor #82b366
+}
+
+actor "Customer" as customer
+actor "Store Admin" as admin
+
+rectangle "Online Bookstore" {
+  rectangle "React SPA\n[React]\nCustomer and admin UI" as spa
+  rectangle "API Server\n[Node.js + Express]\nAll business logic" as api
+  rectangle "Notification Worker\n[Node.js + Bull]\nProcesses email jobs" as worker
+  database "PostgreSQL\n[PostgreSQL]\nPersistent storage" as db
+  database "Redis\n[Redis]\nCache + job queue" as redis
+}
+
+rectangle "Stripe\n[External]" as stripe
+rectangle "SendGrid\n[External]" as sendgrid
+rectangle "AWS S3\n[External]" as s3
+
+customer --> spa : "Uses [HTTPS]"
+admin --> spa : "Uses [HTTPS]"
+spa --> api : "API calls [HTTPS]"
+api --> db : "Reads/writes [SQL]"
+api --> redis : "Cache + enqueue [TCP]"
+api --> stripe : "Payment Intents [HTTPS]"
+api --> s3 : "Image storage [HTTPS]"
+worker --> redis : "Consume jobs [TCP]"
+worker --> sendgrid : "Send emails [HTTPS]"
+stripe --> api : "Webhooks [HTTPS]"
+
+@enduml

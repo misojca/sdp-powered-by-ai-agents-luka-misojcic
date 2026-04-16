@@ -1,5 +1,5 @@
 @startuml c4-context
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include /home/rtrk/.local/share/plantuml/c4/C4_Context.puml
 
 title System Context Diagram — Parking Lot
 
