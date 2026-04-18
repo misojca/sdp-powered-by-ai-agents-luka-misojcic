@@ -1,0 +1,27 @@
+@startuml 06-seq-catalog-search
+title Sequence — Catalog Search (with Redis Cache)
+
+actor Customer
+participant "React SPA" as SPA
+participant "Catalog Service" as Catalog
+database Redis
+database PostgreSQL
+
+Customer -> SPA: Enter search query
+SPA -> Catalog: GET /catalog/books?q=...
+
+Catalog -> Redis: GET cache key
+
+alt Cache hit
+  Redis --> Catalog: Cached result
+  Catalog --> SPA: 200 { books }
+else Cache miss
+  Redis --> Catalog: nil
+  Catalog -> PostgreSQL: SELECT books WHERE ... (indexed)
+  PostgreSQL --> Catalog: Result rows
+  Catalog -> Redis: SET cache key (TTL 5 min)
+  Catalog --> SPA: 200 { books }
+end
+
+SPA --> Customer: Display results
+@enduml
