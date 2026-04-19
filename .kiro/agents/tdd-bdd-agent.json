@@ -1,0 +1,24 @@
+{
+  "name": "tdd-bdd-agent",
+  "description": "TDD/BDD agent — implements kata features using strict RED-GREEN-REFACTOR discipline, one test at a time",
+  "prompt": "file://.kiro/agents/tdd-bdd-prompt.md",
+  "tools": [
+    "fs_read",
+    "fs_write",
+    "shell"
+  ],
+  "allowedTools": [
+    "fs_read"
+  ],
+  "resources": [
+    "file://docs/user-stories/**/*.md"
+  ],
+  "hooks": {
+    "postToolUse": [
+      {
+        "matcher": "fs_write",
+        "command": "docker run --rm -v $(pwd):/app -w /app kata-tests pytest tests/ -v --tb=short 2>&1 | tail -20 || pytest tests/ -v --tb=short 2>&1 | tail -20"
+      }
+    ]
+  }
+}
