@@ -1,9 +1,17 @@
 const { Router } = require('express');
+const { v4: uuidv4 } = require('uuid');
 
 const router = Router();
 
 // In-memory cart store: userId -> Map<bookId, quantity>
 const carts = {};
+
+// In-memory stock: default 100 per book; any book not seen gets 100
+const stock = {};
+function getStock(bookId) {
+  if (stock[bookId] === undefined) stock[bookId] = 100;
+  return stock[bookId];
+}
 
 function getUserId(req) {
   // Derive a stable userId from the Bearer token (no real JWT needed yet)
@@ -50,6 +58,35 @@ router.delete('/cart/items/:bookId', (req, res) => {
 router.get('/cart', (req, res) => {
   const userId = getUserId(req);
   res.json(cartResponse(getCart(userId)));
+});
+
+router.post('/', (req, res) => {
+  const userId = getUserId(req);
+  const cart = getCart(userId);
+
+  if (cart.size === 0) {
+    return res.status(400).json({ error: 'Cart is empty' });
+  }
+
+  // Check stock for all items
+  for (const [bookId, quantity] of cart.entries()) {
+    if (getStock(bookId) < quantity) {
+      return res.status(409).json({ error: 'Insufficient stock', bookId });
+    }
+  }
+
+  // Decrement stock and build order
+  const items = [];
+  let total = 0;
+  for (const [bookId, quantity] of cart.entries()) {
+    stock[bookId] = getStock(bookId) - quantity;
+    items.push({ bookId, quantity, unitPrice: 0 });
+  }
+
+  // Clear cart
+  cart.clear();
+
+  res.status(201).json({ orderId: uuidv4(), status: 'PENDING', items, total });
 });
 
 module.exports = router;
