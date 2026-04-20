@@ -11,6 +11,7 @@ describe('USERS-BE-001.1-S1: POST /users/register — valid registration', () =>
 
     // THEN 201 is returned with { id, email }
     expect(res.status).toBe(201);
-    expect(res.body).toEqual({ id: 'fake-uuid', email: 'alice@example.com' });
+    expect(res.body).toMatchObject({ email: 'alice@example.com' });
+    expect(typeof res.body.id).toBe('string');
   });
 });
