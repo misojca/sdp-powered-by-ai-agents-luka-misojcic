@@ -1,10 +1,11 @@
-FROM python:3.12-slim
+FROM node:20-slim
 
 WORKDIR /app
 
-COPY pyproject.toml .
-RUN pip install --no-cache-dir pytest
+COPY package*.json ./
+RUN npm ci --only=production || npm install
 
-COPY . .
+COPY src/ src/
+COPY tests/ tests/
 
-CMD ["pytest", "tests/", "-v", "--tb=short"]
+CMD ["npm", "test"]
