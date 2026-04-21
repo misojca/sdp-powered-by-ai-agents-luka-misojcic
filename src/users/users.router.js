@@ -18,7 +18,6 @@ const loginSchema = z.object({
 router.post('/register', async (req, res, next) => {
   const result = registerSchema.safeParse(req.body);
   if (!result.success) return res.status(400).json({ error: result.error.errors });
-
   try {
     const user = await usersService.registerUser(result.data);
     res.status(201).json(user);
@@ -31,7 +30,6 @@ router.post('/register', async (req, res, next) => {
 router.post('/login', async (req, res, next) => {
   const result = loginSchema.safeParse(req.body);
   if (!result.success) return res.status(400).json({ error: result.error.errors });
-
   try {
     const tokens = await usersService.loginUser(result.data);
     res.status(200).json(tokens);
