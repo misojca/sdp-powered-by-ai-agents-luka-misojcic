@@ -1,0 +1,33 @@
+@startuml 03-system-context
+title System Context — Online Bookstore
+
+skinparam rectangle {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+  FontSize 13
+}
+skinparam actor {
+  BackgroundColor #d5e8d4
+  BorderColor #82b366
+}
+skinparam database {
+  BackgroundColor #fff2cc
+  BorderColor #d6b656
+}
+
+actor "Customer\n[Person]\nBrowses and purchases books" as customer
+actor "Store Admin\n[Person]\nManages inventory and orders" as admin
+
+rectangle "Online Bookstore\n[System]\nE-commerce platform" as bookstore
+
+rectangle "Stripe\n[External System]\nPayment processing" as stripe
+rectangle "SendGrid\n[External System]\nTransactional email" as sendgrid
+rectangle "AWS S3\n[External System]\nBook cover image storage" as s3
+
+customer --> bookstore : "Browses catalog,\nplaces orders [HTTPS]"
+admin --> bookstore : "Manages books\nand orders [HTTPS]"
+bookstore --> stripe : "Payment Intents +\nwebhooks [HTTPS]"
+bookstore --> sendgrid : "Sends emails\n[HTTPS]"
+bookstore --> s3 : "Stores/retrieves\nimages [HTTPS]"
+
+@enduml

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>4. Solution Strategy &mdash; Online Bookstore 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../genindex.html" />
+            <link rel="search" title="Search" href="../search.html" />
+            <link rel="top" title="Online Bookstore 1.0.0 documentation" href="#" />
+            <link rel="next" title="5. Building Block View" href="05-building-block-view.html" />
+            <link rel="prev" title="3. System Scope and Context" href="03-context-and-scope.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../_static/img/wagtail-logo-circle.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        Online Bookstore
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction-and-goals.html">1. Introduction and Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-constraints.html">2. Architecture Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-context-and-scope.html">3. System Scope and Context</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Solution Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-building-block-view.html">5. Building Block View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-runtime-view.html">6. Runtime View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-deployment-view.html">7. Deployment View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-cross-cutting-concepts.html">8. Cross-cutting Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-architecture-decisions.html">9. Architecture Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-quality-requirements.html">10. Quality Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-risks-and-technical-debts.html">11. Risks and Technical Debts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-glossary.html">12. Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Stories:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user-stories/README.html">User Story Inventory — Online Bookstore</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">4. Solution Strategy</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/misojca/sdp-powered-by-ai-agents-luka-misojcicarchitecture/04-solution-strategy.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../_sources/architecture/04-solution-strategy.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="solution-strategy">
+<h1>4. Solution Strategy<a class="headerlink" href="#solution-strategy" title="Link to this heading">¶</a></h1>
+<section id="architectural-approach">
+<h2>4.1 Architectural Approach<a class="headerlink" href="#architectural-approach" title="Link to this heading">¶</a></h2>
+<p>The system is built as a <strong>modular monolith</strong> — a single deployable Express API internally structured around bounded contexts. Each context is an independent router + service + repository module with its own PostgreSQL schema. This keeps deployment simple while preserving the option to extract contexts into microservices later.</p>
+</section>
+<section id="key-strategic-decisions">
+<h2>4.2 Key Strategic Decisions<a class="headerlink" href="#key-strategic-decisions" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Decision</p></th>
+<th class="head"><p>Choice</p></th>
+<th class="head"><p>Rationale</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Architecture style</p></td>
+<td><p>Modular monolith</p></td>
+<td><p>Low operational overhead; clear context boundaries enable future extraction</p></td>
+</tr>
+<tr class="row-odd"><td><p>Inter-context communication</p></td>
+<td><p>In-process service calls via defined interfaces</p></td>
+<td><p>No network overhead; boundaries enforced by code structure, not infrastructure</p></td>
+</tr>
+<tr class="row-even"><td><p>Async processing</p></td>
+<td><p>Redis queue (Bull)</p></td>
+<td><p>Decouples email notifications from the order request/response cycle</p></td>
+</tr>
+<tr class="row-odd"><td><p>Caching</p></td>
+<td><p>Redis</p></td>
+<td><p>Reduces PostgreSQL load for high-read catalog data</p></td>
+</tr>
+<tr class="row-even"><td><p>Stock consistency</p></td>
+<td><p>PostgreSQL row-level locking (<code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">FOR</span> <span class="pre">UPDATE</span></code>)</p></td>
+<td><p>Prevents overselling under concurrent order placement</p></td>
+</tr>
+<tr class="row-odd"><td><p>Payment</p></td>
+<td><p>Stripe Checkout / Payment Intents</p></td>
+<td><p>Keeps card data off our systems; PCI-DSS scope minimized</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication</p></td>
+<td><p>JWT (short-lived access token + refresh token)</p></td>
+<td><p>Stateless auth; refresh tokens stored in Redis for revocation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Image storage</p></td>
+<td><p>AWS S3</p></td>
+<td><p>Offloads binary storage; pre-signed URLs served directly to the client</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="how-quality-goals-are-addressed">
+<h2>4.3 How Quality Goals Are Addressed<a class="headerlink" href="#how-quality-goals-are-addressed" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Quality Goal</p></th>
+<th class="head"><p>Strategy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Security</p></td>
+<td><p>JWT auth on all writes; Stripe handles card data; bcrypt passwords; no PII in logs</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data Consistency</p></td>
+<td><p>DB transactions + <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">FOR</span> <span class="pre">UPDATE</span></code> for stock decrement</p></td>
+</tr>
+<tr class="row-even"><td><p>Availability</p></td>
+<td><p>Async email via Redis queue; Stripe webhooks for payment confirmation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Performance</p></td>
+<td><p>Redis cache for catalog; paginated search queries with DB indexes</p></td>
+</tr>
+<tr class="row-even"><td><p>Maintainability</p></td>
+<td><p>One Express router per bounded context; no cross-schema DB joins</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="decomposition-strategy">
+<h2>4.4 Decomposition Strategy<a class="headerlink" href="#decomposition-strategy" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">src</span><span class="o">/</span>
+  <span class="n">catalog</span><span class="o">/</span>      <span class="c1"># router, service, repository — owns `catalog` schema</span>
+  <span class="n">orders</span><span class="o">/</span>       <span class="c1"># router, service, repository — owns `orders` schema</span>
+  <span class="n">payment</span><span class="o">/</span>      <span class="c1"># router, service, repository — owns `payment` schema</span>
+  <span class="n">users</span><span class="o">/</span>        <span class="c1"># router, service, repository — owns `users` schema</span>
+  <span class="n">notifications</span><span class="o">/</span><span class="c1"># worker (Bull) + SendGrid client — no HTTP router</span>
+  <span class="n">shared</span><span class="o">/</span>       <span class="c1"># auth middleware, error handler, logger, DB client</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="03-context-and-scope.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>3. System Scope and Context
+    </a>
+    <a class="float-right" href="05-building-block-view.html" title="Next">
+        5. Building Block View <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">4. Solution Strategy</a><ul>
+<li><a class="reference internal" href="#architectural-approach">4.1 Architectural Approach</a></li>
+<li><a class="reference internal" href="#key-strategic-decisions">4.2 Key Strategic Decisions</a></li>
+<li><a class="reference internal" href="#how-quality-goals-are-addressed">4.3 How Quality Goals Are Addressed</a></li>
+<li><a class="reference internal" href="#decomposition-strategy">4.4 Decomposition Strategy</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2026, Luka Misojcic
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>Last updated: Apr 21, 2026</small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>8. Cross-cutting Concepts &mdash; Online Bookstore 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../genindex.html" />
+            <link rel="search" title="Search" href="../search.html" />
+            <link rel="top" title="Online Bookstore 1.0.0 documentation" href="#" />
+            <link rel="next" title="9. Architecture Decisions" href="09-architecture-decisions.html" />
+            <link rel="prev" title="7. Deployment View" href="07-deployment-view.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../_static/img/wagtail-logo-circle.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        Online Bookstore
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction-and-goals.html">1. Introduction and Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-constraints.html">2. Architecture Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-context-and-scope.html">3. System Scope and Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-solution-strategy.html">4. Solution Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-building-block-view.html">5. Building Block View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-runtime-view.html">6. Runtime View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-deployment-view.html">7. Deployment View</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Cross-cutting Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-architecture-decisions.html">9. Architecture Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-quality-requirements.html">10. Quality Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-risks-and-technical-debts.html">11. Risks and Technical Debts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-glossary.html">12. Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Stories:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user-stories/README.html">User Story Inventory — Online Bookstore</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">8. Cross-cutting Concepts</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/misojca/sdp-powered-by-ai-agents-luka-misojcicarchitecture/08-cross-cutting-concepts.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../_sources/architecture/08-cross-cutting-concepts.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="cross-cutting-concepts">
+<h1>8. Cross-cutting Concepts<a class="headerlink" href="#cross-cutting-concepts" title="Link to this heading">¶</a></h1>
+<section id="authentication-authorization">
+<h2>8.1 Authentication &amp; Authorization<a class="headerlink" href="#authentication-authorization" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>All write endpoints and user-specific read endpoints require a valid JWT in the <code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Bearer</span> <span class="pre">&lt;token&gt;</span></code> header.</p></li>
+<li><p>JWTs are short-lived (15 min access token). Refresh tokens (7 days) are stored in Redis; revocation is done by deleting the Redis key.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Auth</span> <span class="pre">Middleware</span></code> in <code class="docutils literal notranslate"><span class="pre">src/shared/auth.js</span></code> validates the token and attaches <code class="docutils literal notranslate"><span class="pre">req.user</span></code> before the request reaches any router.</p></li>
+<li><p>Admin-only routes are guarded by a second <code class="docutils literal notranslate"><span class="pre">requireRole('admin')</span></code> middleware.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/shared/auth.js</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">jwt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jsonwebtoken&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="o">?</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mf">1</span><span class="p">];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">token</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Unauthorized&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">JWT_SECRET</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">next</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Invalid token&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="error-handling">
+<h2>8.2 Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>All errors are caught by a single Express error-handling middleware registered last in <code class="docutils literal notranslate"><span class="pre">src/app.js</span></code>.</p></li>
+<li><p>Operational errors (validation, not found, conflict) return structured JSON with an HTTP status code.</p></li>
+<li><p>Unexpected errors are logged and return a generic <code class="docutils literal notranslate"><span class="pre">500</span></code> — no stack traces exposed to clients.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/shared/errorHandler.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="mf">500</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">500</span><span class="p">)</span><span class="w"> </span><span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">status</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;Internal server error&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="logging">
+<h2>8.3 Logging<a class="headerlink" href="#logging" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Structured JSON logging via <code class="docutils literal notranslate"><span class="pre">pino</span></code>.</p></li>
+<li><p>Every request is logged with <code class="docutils literal notranslate"><span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">statusCode</span></code>, and <code class="docutils literal notranslate"><span class="pre">responseTimeMs</span></code>.</p></li>
+<li><p>PII (email, name) is never logged — redacted at the logger level.</p></li>
+<li><p>Log levels: <code class="docutils literal notranslate"><span class="pre">debug</span></code> (dev), <code class="docutils literal notranslate"><span class="pre">info</span></code> (staging/prod), <code class="docutils literal notranslate"><span class="pre">error</span></code> for unhandled exceptions.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/shared/logger.js</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">pino</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pino&#39;</span><span class="p">);</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pino</span><span class="p">({</span><span class="w"> </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">LOG_LEVEL</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;info&#39;</span><span class="w"> </span><span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="input-validation">
+<h2>8.4 Input Validation<a class="headerlink" href="#input-validation" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>All request bodies and query params are validated at the router level using <code class="docutils literal notranslate"><span class="pre">zod</span></code> schemas before reaching the service layer.</p></li>
+<li><p>Invalid input returns <code class="docutils literal notranslate"><span class="pre">400</span></code> immediately — nothing invalid reaches the DB.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;zod&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">object</span><span class="p">({</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">string</span><span class="p">().</span><span class="nx">min</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">number</span><span class="p">().</span><span class="nx">positive</span><span class="p">()</span><span class="w"> </span><span class="p">});</span>
+
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/books&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">auth</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">schema</span><span class="p">.</span><span class="nx">safeParse</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">success</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">flatten</span><span class="p">()</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="configuration-secrets">
+<h2>8.5 Configuration &amp; Secrets<a class="headerlink" href="#configuration-secrets" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>All secrets (DB URL, JWT secret, Stripe key, SendGrid key) are injected as environment variables.</p></li>
+<li><p>In production, values are sourced from AWS Secrets Manager at container startup.</p></li>
+<li><p>No secrets are committed to the repository.</p></li>
+</ul>
+</section>
+<section id="database-migrations">
+<h2>8.6 Database Migrations<a class="headerlink" href="#database-migrations" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Schema migrations managed by <code class="docutils literal notranslate"><span class="pre">node-pg-migrate</span></code>.</p></li>
+<li><p>Migrations run automatically on container startup in a pre-start script.</p></li>
+<li><p>Each bounded context has its own migration directory: <code class="docutils literal notranslate"><span class="pre">migrations/catalog/</span></code>, <code class="docutils literal notranslate"><span class="pre">migrations/orders/</span></code>, etc.</p></li>
+</ul>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="07-deployment-view.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>7. Deployment View
+    </a>
+    <a class="float-right" href="09-architecture-decisions.html" title="Next">
+        9. Architecture Decisions <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">8. Cross-cutting Concepts</a><ul>
+<li><a class="reference internal" href="#authentication-authorization">8.1 Authentication &amp; Authorization</a></li>
+<li><a class="reference internal" href="#error-handling">8.2 Error Handling</a></li>
+<li><a class="reference internal" href="#logging">8.3 Logging</a></li>
+<li><a class="reference internal" href="#input-validation">8.4 Input Validation</a></li>
+<li><a class="reference internal" href="#configuration-secrets">8.5 Configuration &amp; Secrets</a></li>
+<li><a class="reference internal" href="#database-migrations">8.6 Database Migrations</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2026, Luka Misojcic
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>Last updated: Apr 21, 2026</small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

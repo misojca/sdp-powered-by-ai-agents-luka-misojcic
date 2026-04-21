@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="505px" preserveAspectRatio="none" style="width:541px;height:505px;" version="1.1" viewBox="0 0 541 505" width="541px" zoomAndPan="magnify"><defs><filter height="300%" id="f1e898uywf813l" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="311" x="118.5" y="19.2419">System Context — Online Bookstore</text><!--MD5=[92848cbaf65985a669855153c5362c37]
+entity customer--><ellipse cx="131" cy="42.0158" fill="#D5E8D4" filter="url(#f1e898uywf813l)" rx="8" ry="8" style="stroke: #82B366; stroke-width: 1.5;"/><path d="M131,50.0158 L131,77.0158 M118,58.0158 L144,58.0158 M131,77.0158 L118,92.0158 M131,77.0158 L144,92.0158 " fill="none" filter="url(#f1e898uywf813l)" style="stroke: #82B366; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="65" x="29.5" y="112.4818">Customer</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="29.5" y="131.5497">[Person]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="203" x="29.5" y="150.6176">Browses and purchases books</text><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
+entity admin--><ellipse cx="371" cy="42.0158" fill="#D5E8D4" filter="url(#f1e898uywf813l)" rx="8" ry="8" style="stroke: #82B366; stroke-width: 1.5;"/><path d="M371,50.0158 L371,77.0158 M358,58.0158 L384,58.0158 M371,77.0158 L358,92.0158 M371,77.0158 L384,92.0158 " fill="none" filter="url(#f1e898uywf813l)" style="stroke: #82B366; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="83" x="267.5" y="112.4818">Store Admin</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="267.5" y="131.5497">[Person]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="207" x="267.5" y="150.6176">Manages inventory and orders</text><!--MD5=[1502f891eee3f6ad41318a2516baa021]
+entity bookstore--><rect fill="#DAE8FC" filter="url(#f1e898uywf813l)" height="73.118" style="stroke: #6C8EBF; stroke-width: 1.5;" width="149" x="176.5" y="251.5158"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="186.5" y="275.4129">Online Bookstore</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="186.5" y="293.1189">[System]</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="129" x="186.5" y="310.8249">E-commerce platform</text><!--MD5=[a29fe3b73bd7c5d5e80e6b5e6b2bebf6]
+entity stripe--><rect fill="#DAE8FC" filter="url(#f1e898uywf813l)" height="73.118" style="stroke: #6C8EBF; stroke-width: 1.5;" width="142" x="6" y="421.5158"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="35" x="16" y="445.4129">Stripe</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="16" y="463.1189">[External System]</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="122" x="16" y="480.8249">Payment processing</text><!--MD5=[c3b7859e7187043933d1a0430eb79138]
+entity sendgrid--><rect fill="#DAE8FC" filter="url(#f1e898uywf813l)" height="73.118" style="stroke: #6C8EBF; stroke-width: 1.5;" width="135" x="183.5" y="421.5158"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="55" x="193.5" y="445.4129">SendGrid</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="193.5" y="463.1189">[External System]</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="115" x="193.5" y="480.8249">Transactional email</text><!--MD5=[b165ca7cce796f881c879adda4a6bef9]
+entity s3--><rect fill="#DAE8FC" filter="url(#f1e898uywf813l)" height="73.118" style="stroke: #6C8EBF; stroke-width: 1.5;" width="176" x="354" y="421.5158"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="44" x="364" y="445.4129">AWS S3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="364" y="463.1189">[External System]</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="156" x="364" y="480.8249">Book cover image storage</text><!--MD5=[38662fec3e3ec55b2399e6f58b72035c]
+link customer to bookstore--><path d="M159.06,154.7858 C169.96,176.3958 183.15,200.5858 197,221.5158 C202.73,230.1758 209.4,239.0358 216.05,247.3258 " fill="none" id="customer-&gt;bookstore" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="219.31,251.3458,216.7391,241.8384,216.157,247.4653,210.5302,246.8832,219.31,251.3458" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="100" x="212.5" y="199.4129">Browses catalog,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="129" x="198" y="217.1189">places orders [HTTPS]</text><!--MD5=[5c1c187ed5d1cff18f14d01b65395362]
+link admin to bookstore--><path d="M360.29,154.6458 C354.39,176.9558 345.43,201.6458 332,221.5158 C325.53,231.0858 317.25,239.9558 308.46,247.8858 " fill="none" id="admin-&gt;bookstore" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="304.66,251.2258,314.0617,248.2919,308.4167,247.9263,308.7824,242.2812,304.66,251.2258" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="95" x="361" y="199.4129">Manages books</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="115" x="351" y="217.1189">and orders [HTTPS]</text><!--MD5=[56d192b72f9826d5656c7b9fa216c35f]
+link bookstore to stripe--><path d="M176.35,319.8158 C159.39,329.2058 142.44,340.7558 129,354.5158 C111.96,371.9558 99.34,396.1058 90.8,416.5758 " fill="none" id="bookstore-&gt;stripe" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="88.83,421.4258,95.93,414.6002,90.7165,416.7954,88.5213,411.5818,88.83,421.4258" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="110" x="131" y="369.4129">Payment Intents +</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="130" y="387.1189">webhooks [HTTPS]</text><!--MD5=[71449bc664d5a85d7d5238461abf99d3]
+link bookstore to sendgrid--><path d="M251,324.6458 C251,351.4858 251,388.3158 251,416.3158 " fill="none" id="bookstore-&gt;sendgrid" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="251,421.4358,255,412.4358,251,416.4358,247,412.4358,251,421.4358" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="77" x="252" y="369.4129">Sends emails</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="267" y="387.1189">[HTTPS]</text><!--MD5=[81a8855c4c8495eadf4f177a38b00389]
+link bookstore to s3--><path d="M300.67,324.6258 C313.12,334.0258 326.26,344.3858 338,354.5158 C360.86,374.2258 384.95,397.7758 404.18,417.3258 " fill="none" id="bookstore-&gt;s3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="407.96,421.1858,404.5175,411.9582,404.4604,417.6148,398.8038,417.5576,407.96,421.1858" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="95" x="377" y="369.4129">Stores/retrieves</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="93" x="378" y="387.1189">images [HTTPS]</text><!--MD5=[4846329e8d04a546e68fef0df5dda65a]
+@startuml 03-system-context
+title System Context — Online Bookstore
+
+skinparam rectangle {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+  FontSize 13
+}
+skinparam actor {
+  BackgroundColor #d5e8d4
+  BorderColor #82b366
+}
+skinparam database {
+  BackgroundColor #fff2cc
+  BorderColor #d6b656
+}
+
+actor "Customer\n[Person]\nBrowses and purchases books" as customer
+actor "Store Admin\n[Person]\nManages inventory and orders" as admin
+
+rectangle "Online Bookstore\n[System]\nE-commerce platform" as bookstore
+
+rectangle "Stripe\n[External System]\nPayment processing" as stripe
+rectangle "SendGrid\n[External System]\nTransactional email" as sendgrid
+rectangle "AWS S3\n[External System]\nBook cover image storage" as s3
+
+customer - -> bookstore : "Browses catalog,\nplaces orders [HTTPS]"
+admin - -> bookstore : "Manages books\nand orders [HTTPS]"
+bookstore - -> stripe : "Payment Intents +\nwebhooks [HTTPS]"
+bookstore - -> sendgrid : "Sends emails\n[HTTPS]"
+bookstore - -> s3 : "Stores/retrieves\nimages [HTTPS]"
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 11:22:07 CET 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

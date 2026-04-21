@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Orders Domain — Story Bundles &mdash; Online Bookstore 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../genindex.html" />
+            <link rel="search" title="Search" href="../search.html" />
+            <link rel="top" title="Online Bookstore 1.0.0 documentation" href="#" />
+    </head>
+<body>
+    <script type="text/javascript" src="../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../_static/img/wagtail-logo-circle.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        Online Bookstore
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/01-introduction-and-goals.html">1. Introduction and Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/02-constraints.html">2. Architecture Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/03-context-and-scope.html">3. System Scope and Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/04-solution-strategy.html">4. Solution Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/05-building-block-view.html">5. Building Block View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/06-runtime-view.html">6. Runtime View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/07-deployment-view.html">7. Deployment View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/08-cross-cutting-concepts.html">8. Cross-cutting Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/09-architecture-decisions.html">9. Architecture Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/10-quality-requirements.html">10. Quality Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/11-risks-and-technical-debts.html">11. Risks and Technical Debts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/12-glossary.html">12. Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Stories:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">User Story Inventory — Online Bookstore</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Orders Domain — Story Bundles</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/misojca/sdp-powered-by-ai-agents-luka-misojcicuser-stories/orders.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../_sources/user-stories/orders.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="orders-domain-story-bundles">
+<h1>Orders Domain — Story Bundles<a class="headerlink" href="#orders-domain-story-bundles" title="Link to this heading">¶</a></h1>
+<hr class="docutils" />
+<section id="orders-story-001-manage-shopping-cart">
+<h2>ORDERS-STORY-001: Manage Shopping Cart<a class="headerlink" href="#orders-story-001-manage-shopping-cart" title="Link to this heading">¶</a></h2>
+<p><strong>Architecture Reference</strong>: Section 1 — Introduction and Goals (G-03)
+<strong>Priority</strong>: CORE
+<strong>Pareto</strong>: 20% core (delivers 80% value)</p>
+<p>AS A logged-in customer
+I WANT to add books to my cart, update quantities, and remove items
+SO THAT I can prepare my selection before placing an order</p>
+<section id="scenario-1-add-a-book-to-the-cart">
+<h3>SCENARIO 1: Add a book to the cart<a class="headerlink" href="#scenario-1-add-a-book-to-the-cart" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: ORDERS-STORY-001-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer is authenticated</p></li>
+<li><p>The requested book exists in the catalog and has stock available</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer adds a book to their cart with a quantity of 1</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A cart item is created (or quantity incremented if already present)</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with the updated cart contents</p></li>
+</ul>
+</section>
+<section id="scenario-2-update-item-quantity">
+<h3>SCENARIO 2: Update item quantity<a class="headerlink" href="#scenario-2-update-item-quantity" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: ORDERS-STORY-001-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer has a book in their cart</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer changes the quantity to 3</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The cart item quantity is updated to 3</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with the updated cart</p></li>
+</ul>
+</section>
+<section id="scenario-3-remove-an-item-from-the-cart">
+<h3>SCENARIO 3: Remove an item from the cart<a class="headerlink" href="#scenario-3-remove-an-item-from-the-cart" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: ORDERS-STORY-001-S3</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer has at least one item in their cart</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer removes a specific book from the cart</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The cart item is deleted</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with the updated cart (item no longer present)</p></li>
+</ul>
+</section>
+<section id="scenario-4-view-current-cart">
+<h3>SCENARIO 4: View current cart<a class="headerlink" href="#scenario-4-view-current-cart" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: ORDERS-STORY-001-S4</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer is authenticated</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer opens the cart page</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with all current cart items: book title, quantity, unit price, line total</p></li>
+<li><p>Cart total is included in the response</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="orders-fe-001-1-shopping-cart-ui">
+<h3>ORDERS-FE-001.1: Shopping Cart UI<a class="headerlink" href="#orders-fe-001-1-shopping-cart-ui" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 3 — System Scope and Context (3.4 Users)</p>
+<p>AS A logged-in customer
+I WANT a cart page showing my selected books with quantity controls and a total
+SO THAT I can review and adjust my selection before checkout</p>
+<section id="scenario-1-add-to-cart-from-catalog">
+<h4>SCENARIO 1: Add to cart from catalog<a class="headerlink" href="#scenario-1-add-to-cart-from-catalog" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-FE-001.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer is browsing the catalog</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer clicks “Add to Cart” on a book</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/orders/cart/items</span></code> request is sent</p></li>
+<li><p>The cart icon in the header updates to reflect the new item count</p></li>
+</ul>
+</section>
+<section id="scenario-2-update-quantity-in-cart">
+<h4>SCENARIO 2: Update quantity in cart<a class="headerlink" href="#scenario-2-update-quantity-in-cart" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-FE-001.1-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer is on the <code class="docutils literal notranslate"><span class="pre">/cart</span></code> page</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer changes the quantity input for a book</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/orders/cart/items/:bookId</span></code> request is sent with the new quantity</p></li>
+<li><p>The line total and cart total update immediately in the UI</p></li>
+</ul>
+</section>
+<section id="scenario-3-remove-item-from-cart">
+<h4>SCENARIO 3: Remove item from cart<a class="headerlink" href="#scenario-3-remove-item-from-cart" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-FE-001.1-S3</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer is on the <code class="docutils literal notranslate"><span class="pre">/cart</span></code> page</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer clicks “Remove” on a cart item</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/orders/cart/items/:bookId</span></code> request is sent</p></li>
+<li><p>The item disappears from the cart; totals recalculate</p></li>
+</ul>
+</section>
+<section id="scenario-4-empty-cart-shows-prompt">
+<h4>SCENARIO 4: Empty cart shows prompt<a class="headerlink" href="#scenario-4-empty-cart-shows-prompt" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-FE-001.1-S4</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer’s cart has no items</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer navigates to <code class="docutils literal notranslate"><span class="pre">/cart</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>An empty state message is shown: “Your cart is empty”</p></li>
+<li><p>A “Browse Catalog” link is displayed</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-be-001-1-cart-management-api">
+<h3>ORDERS-BE-001.1: Cart Management API<a class="headerlink" href="#orders-be-001-1-cart-management-api" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 5 — Building Block View (Orders Router + Service)</p>
+<p>AS A frontend client
+I WANT cart CRUD endpoints under <code class="docutils literal notranslate"><span class="pre">/orders/cart</span></code>
+SO THAT authenticated customers can manage their cart items server-side</p>
+<section id="scenario-1-add-item-post-orders-cart-items">
+<h4>SCENARIO 1: Add item — POST /orders/cart/items<a class="headerlink" href="#scenario-1-add-item-post-orders-cart-items" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-BE-001.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The request carries a valid JWT</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">bookId,</span> <span class="pre">quantity</span> <span class="pre">}</span></code> is provided in the request body</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/orders/cart/items</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>If the book is not in the cart: a new <code class="docutils literal notranslate"><span class="pre">orders.cart_items</span></code> row is inserted</p></li>
+<li><p>If the book is already in the cart: quantity is incremented</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with the full updated cart</p></li>
+</ul>
+</section>
+<section id="scenario-2-update-quantity-put-orders-cart-items-bookid">
+<h4>SCENARIO 2: Update quantity — PUT /orders/cart/items/:bookId<a class="headerlink" href="#scenario-2-update-quantity-put-orders-cart-items-bookid" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-BE-001.1-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The cart item exists for the authenticated user</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/orders/cart/items/:bookId</span></code> is called with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">quantity:</span> <span class="pre">3</span> <span class="pre">}</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">quantity</span></code> column is updated to 3</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with the updated cart</p></li>
+</ul>
+</section>
+<section id="scenario-3-remove-item-delete-orders-cart-items-bookid">
+<h4>SCENARIO 3: Remove item — DELETE /orders/cart/items/:bookId<a class="headerlink" href="#scenario-3-remove-item-delete-orders-cart-items-bookid" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-BE-001.1-S3</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The cart item exists for the authenticated user</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/orders/cart/items/:bookId</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The row is deleted from <code class="docutils literal notranslate"><span class="pre">orders.cart_items</span></code></p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with the updated cart</p></li>
+</ul>
+</section>
+<section id="scenario-4-get-cart-get-orders-cart">
+<h4>SCENARIO 4: Get cart — GET /orders/cart<a class="headerlink" href="#scenario-4-get-cart-get-orders-cart" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-BE-001.1-S4</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer is authenticated</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/orders/cart</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">items:</span> <span class="pre">[{</span> <span class="pre">bookId,</span> <span class="pre">title,</span> <span class="pre">quantity,</span> <span class="pre">unitPrice,</span> <span class="pre">lineTotal</span> <span class="pre">}],</span> <span class="pre">cartTotal</span> <span class="pre">}</span></code></p></li>
+<li><p>Book title and price are fetched from the Catalog Service (in-process call), not via SQL join</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-infra-001-1-deploy-api-service-as-docker-container">
+<h3>ORDERS-INFRA-001.1: Deploy API Service as Docker Container<a class="headerlink" href="#orders-infra-001-1-deploy-api-service-as-docker-container" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 7 — Deployment View</p>
+<p>AS A developer
+I WANT the API running in Docker with PostgreSQL available
+SO THAT cart operations persist correctly across requests</p>
+<section id="scenario-1-service-starts-and-cart-endpoint-is-reachable">
+<h4>SCENARIO 1: Service starts and cart endpoint is reachable<a class="headerlink" href="#scenario-1-service-starts-and-cart-endpoint-is-reachable" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-001.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> defines <code class="docutils literal notranslate"><span class="pre">api</span></code>, <code class="docutils literal notranslate"><span class="pre">db</span></code>, and <code class="docutils literal notranslate"><span class="pre">redis</span></code> services</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">up</span></code> is executed</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The API is reachable on port 3000</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> returns <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">status:</span> <span class="pre">&quot;healthy&quot;,</span> <span class="pre">service:</span> <span class="pre">&quot;api&quot;</span> <span class="pre">}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/orders/cart</span></code> with a valid JWT returns <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-infra-001-2-create-orders-postgresql-schema-cart-tables">
+<h3>ORDERS-INFRA-001.2: Create <code class="docutils literal notranslate"><span class="pre">orders</span></code> PostgreSQL Schema — Cart Tables<a class="headerlink" href="#orders-infra-001-2-create-orders-postgresql-schema-cart-tables" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 5 — Building Block View (DB Client / schema-per-context)</p>
+<p>AS A developer
+I WANT the <code class="docutils literal notranslate"><span class="pre">orders.cart_items</span></code> table created via migration
+SO THAT cart state is persisted per user in the Orders context schema</p>
+<section id="scenario-1-migration-creates-cart-items-table">
+<h4>SCENARIO 1: Migration creates cart_items table<a class="headerlink" href="#scenario-1-migration-creates-cart-items-table" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-001.2-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>A PostgreSQL instance is running</p></li>
+<li><p>Migration file <code class="docutils literal notranslate"><span class="pre">migrations/orders/001_create_cart.sql</span></code> exists</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The migration script is executed via <code class="docutils literal notranslate"><span class="pre">node-pg-migrate</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">orders.cart_items</span></code> table exists with columns: <code class="docutils literal notranslate"><span class="pre">id</span></code> (UUID PK), <code class="docutils literal notranslate"><span class="pre">user_id</span></code> (UUID NOT NULL), <code class="docutils literal notranslate"><span class="pre">book_id</span></code> (UUID NOT NULL), <code class="docutils literal notranslate"><span class="pre">quantity</span></code> (INTEGER, CHECK &gt; 0), <code class="docutils literal notranslate"><span class="pre">added_at</span></code></p></li>
+<li><p>A UNIQUE constraint exists on <code class="docutils literal notranslate"><span class="pre">(user_id,</span> <span class="pre">book_id)</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-infra-001-3-configure-inter-context-integration-point-catalog-orders">
+<h3>ORDERS-INFRA-001.3: Configure Inter-context Integration Point (Catalog → Orders)<a class="headerlink" href="#orders-infra-001-3-configure-inter-context-integration-point-catalog-orders" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 6 — Runtime View (6.1 Place Order)</p>
+<p>AS A developer
+I WANT the Orders Service to retrieve book price and title from the Catalog Service via in-process call
+SO THAT cart totals are accurate without cross-schema SQL joins</p>
+<section id="scenario-1-cart-total-uses-live-catalog-service-data">
+<h4>SCENARIO 1: Cart total uses live Catalog Service data<a class="headerlink" href="#scenario-1-cart-total-uses-live-catalog-service-data" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-001.3-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The API is running</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">orders.cart_items</span></code> contains rows for a user</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/orders/cart</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The Orders Service calls <code class="docutils literal notranslate"><span class="pre">CatalogService.getBooksByIds(bookIds)</span></code> in-process</p></li>
+<li><p>Book titles and prices are returned without any SQL JOIN across schemas</p></li>
+<li><p>The cart response includes accurate <code class="docutils literal notranslate"><span class="pre">unitPrice</span></code> and <code class="docutils literal notranslate"><span class="pre">lineTotal</span></code> per item</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Note</strong>: No domain events are published by the cart management flow. The integration point is a synchronous in-process service call from Orders to Catalog (ADR-001). Events are introduced in ORDERS-STORY-002 (order placement).</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-infra-001-4-setup-monitoring-and-observability">
+<h3>ORDERS-INFRA-001.4: Setup Monitoring and Observability<a class="headerlink" href="#orders-infra-001-4-setup-monitoring-and-observability" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 8 — Cross-cutting Concepts (8.3 Logging)</p>
+<p>AS A developer
+I WANT cart operations logged with user context (user ID only, no PII)
+SO THAT I can trace cart activity and debug issues without exposing personal data</p>
+<section id="scenario-1-health-check-is-reachable">
+<h4>SCENARIO 1: Health check is reachable<a class="headerlink" href="#scenario-1-health-check-is-reachable" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-001.4-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The API container is running</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">status:</span> <span class="pre">&quot;healthy&quot;,</span> <span class="pre">service:</span> <span class="pre">&quot;api&quot;,</span> <span class="pre">version:</span> <span class="pre">&quot;&lt;semver&gt;&quot;</span> <span class="pre">}</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-2-cart-mutation-logged-with-user-id">
+<h4>SCENARIO 2: Cart mutation logged with user ID<a class="headerlink" href="#scenario-2-cart-mutation-logged-with-user-id" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-001.4-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>An authenticated customer adds, updates, or removes a cart item</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The request completes</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A structured JSON log line is emitted with <code class="docutils literal notranslate"><span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">statusCode</span></code>, <code class="docutils literal notranslate"><span class="pre">responseTimeMs</span></code>, and <code class="docutils literal notranslate"><span class="pre">userId</span></code></p></li>
+<li><p>No book titles, prices, or customer names appear in the log line</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-story-002-place-an-order">
+<h2>ORDERS-STORY-002: Place an Order<a class="headerlink" href="#orders-story-002-place-an-order" title="Link to this heading">¶</a></h2>
+<p><strong>Architecture Reference</strong>: Section 1 — Introduction and Goals (G-03)
+<strong>Priority</strong>: CORE
+<strong>Pareto</strong>: 20% core (delivers 80% value)</p>
+<p>AS A logged-in customer
+I WANT to place an order from my cart
+SO THAT my selected books are reserved and I can proceed to payment</p>
+<section id="scenario-1-successful-order-placement">
+<h3>SCENARIO 1: Successful order placement<a class="headerlink" href="#scenario-1-successful-order-placement" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: ORDERS-STORY-002-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer is authenticated and has items in their cart</p></li>
+<li><p>All books in the cart have sufficient stock</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer submits the checkout</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A DB transaction opens, locks the relevant stock rows (<code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">FOR</span> <span class="pre">UPDATE</span></code>), decrements stock, and creates an order in <code class="docutils literal notranslate"><span class="pre">PENDING</span></code> state</p></li>
+<li><p>The cart is cleared</p></li>
+<li><p>An “order received” email job is enqueued on the Redis Bull queue</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">201</span> <span class="pre">Created</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">orderId,</span> <span class="pre">status:</span> <span class="pre">&quot;PENDING&quot;,</span> <span class="pre">items,</span> <span class="pre">total</span> <span class="pre">}</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-2-insufficient-stock-prevents-order">
+<h3>SCENARIO 2: Insufficient stock prevents order<a class="headerlink" href="#scenario-2-insufficient-stock-prevents-order" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: ORDERS-STORY-002-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>One or more books in the cart have less stock than the requested quantity</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer submits the checkout</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The transaction is rolled back; no stock is decremented</p></li>
+<li><p>No order record is created</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">409</span> <span class="pre">Conflict</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">error:</span> <span class="pre">&quot;Insufficient</span> <span class="pre">stock&quot;,</span> <span class="pre">bookId:</span> <span class="pre">&quot;&lt;id&gt;&quot;</span> <span class="pre">}</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-3-empty-cart-cannot-be-checked-out">
+<h3>SCENARIO 3: Empty cart cannot be checked out<a class="headerlink" href="#scenario-3-empty-cart-cannot-be-checked-out" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: ORDERS-STORY-002-S3</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer’s cart has no items</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer attempts to place an order</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">error:</span> <span class="pre">&quot;Cart</span> <span class="pre">is</span> <span class="pre">empty&quot;</span> <span class="pre">}</span></code></p></li>
+<li><p>No DB transaction is opened</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="orders-fe-002-1-checkout-flow-ui">
+<h3>ORDERS-FE-002.1: Checkout Flow UI<a class="headerlink" href="#orders-fe-002-1-checkout-flow-ui" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 6 — Runtime View (6.1 Place Order)</p>
+<p>AS A logged-in customer
+I WANT a checkout button on the cart page that initiates order placement
+SO THAT I can confirm my purchase and proceed to payment</p>
+<section id="scenario-1-successful-checkout-transitions-to-payment">
+<h4>SCENARIO 1: Successful checkout transitions to payment<a class="headerlink" href="#scenario-1-successful-checkout-transitions-to-payment" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-FE-002.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer is on the <code class="docutils literal notranslate"><span class="pre">/cart</span></code> page with items in the cart</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer clicks “Proceed to Checkout”</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/orders</span></code> request is sent</p></li>
+<li><p>On <code class="docutils literal notranslate"><span class="pre">201</span></code> response, the customer is redirected to <code class="docutils literal notranslate"><span class="pre">/payment/:orderId</span></code> with the <code class="docutils literal notranslate"><span class="pre">orderId</span></code></p></li>
+<li><p>The cart icon resets to 0</p></li>
+</ul>
+</section>
+<section id="scenario-2-insufficient-stock-error-shown-inline">
+<h4>SCENARIO 2: Insufficient stock error shown inline<a class="headerlink" href="#scenario-2-insufficient-stock-error-shown-inline" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-FE-002.1-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer clicks “Proceed to Checkout”</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The API returns <code class="docutils literal notranslate"><span class="pre">409</span> <span class="pre">Conflict</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>An error banner is shown: “One or more items are out of stock. Please update your cart.”</p></li>
+<li><p>The customer remains on the cart page</p></li>
+</ul>
+</section>
+<section id="scenario-3-checkout-button-disabled-during-request">
+<h4>SCENARIO 3: Checkout button disabled during request<a class="headerlink" href="#scenario-3-checkout-button-disabled-during-request" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-FE-002.1-S3</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer clicks “Proceed to Checkout”</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The API request is in flight</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The checkout button is disabled and shows a loading indicator</p></li>
+<li><p>Prevents duplicate order submissions</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-be-002-1-place-order-api-endpoint">
+<h3>ORDERS-BE-002.1: Place Order API Endpoint<a class="headerlink" href="#orders-be-002-1-place-order-api-endpoint" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 5 — Building Block View (Orders Router + Service)</p>
+<p>AS A frontend client
+I WANT a <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/orders</span></code> endpoint that atomically reserves stock and creates an order
+SO THAT no overselling occurs under concurrent requests</p>
+<section id="scenario-1-atomic-stock-decrement-and-order-creation">
+<h4>SCENARIO 1: Atomic stock decrement and order creation<a class="headerlink" href="#scenario-1-atomic-stock-decrement-and-order-creation" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-BE-002.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer has items in <code class="docutils literal notranslate"><span class="pre">orders.cart_items</span></code></p></li>
+<li><p>All books have sufficient stock in <code class="docutils literal notranslate"><span class="pre">catalog.books</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/orders</span></code> is called with a valid JWT</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A PostgreSQL transaction opens</p></li>
+<li><p>Each book row in <code class="docutils literal notranslate"><span class="pre">catalog.books</span></code> is locked with <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">FOR</span> <span class="pre">UPDATE</span></code></p></li>
+<li><p>Stock is decremented by the ordered quantity</p></li>
+<li><p>A row is inserted into <code class="docutils literal notranslate"><span class="pre">orders.orders</span></code> with <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">=</span> <span class="pre">'PENDING'</span></code></p></li>
+<li><p>Rows are inserted into <code class="docutils literal notranslate"><span class="pre">orders.order_items</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">orders.cart_items</span></code> rows for this user are deleted</p></li>
+<li><p>Transaction commits</p></li>
+<li><p>Notifications Service is called in-process to enqueue an “order received” Bull job</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">201</span> <span class="pre">Created</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">orderId,</span> <span class="pre">status:</span> <span class="pre">&quot;PENDING&quot;,</span> <span class="pre">items,</span> <span class="pre">total</span> <span class="pre">}</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-2-concurrent-order-rolls-back-on-insufficient-stock">
+<h4>SCENARIO 2: Concurrent order rolls back on insufficient stock<a class="headerlink" href="#scenario-2-concurrent-order-rolls-back-on-insufficient-stock" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-BE-002.1-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>Two customers attempt to buy the last copy simultaneously</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">FOR</span> <span class="pre">UPDATE</span></code> serialises access</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The second transaction checks stock after the first has decremented it</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The second transaction detects stock = 0 and rolls back</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">409</span> <span class="pre">Conflict</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">error:</span> <span class="pre">&quot;Insufficient</span> <span class="pre">stock&quot;,</span> <span class="pre">bookId:</span> <span class="pre">&quot;&lt;id&gt;&quot;</span> <span class="pre">}</span></code></p></li>
+<li><p>Stock never goes negative</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-infra-002-1-deploy-api-service-as-docker-container">
+<h3>ORDERS-INFRA-002.1: Deploy API Service as Docker Container<a class="headerlink" href="#orders-infra-002-1-deploy-api-service-as-docker-container" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 7 — Deployment View</p>
+<p>AS A developer
+I WANT the API, PostgreSQL, and Redis running together in Docker
+SO THAT order placement with stock locking and async email queuing works end-to-end</p>
+<section id="scenario-1-full-order-placement-flow-works-in-docker">
+<h4>SCENARIO 1: Full order placement flow works in Docker<a class="headerlink" href="#scenario-1-full-order-placement-flow-works-in-docker" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-002.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">up</span></code> has started <code class="docutils literal notranslate"><span class="pre">api</span></code>, <code class="docutils literal notranslate"><span class="pre">db</span></code>, and <code class="docutils literal notranslate"><span class="pre">redis</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/orders</span></code> is called with a valid JWT and a non-empty cart</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Order is created in PostgreSQL, stock is decremented, Bull job is enqueued in Redis</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">201</span> <span class="pre">Created</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> returns <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-infra-002-2-create-orders-postgresql-schema-orders-tables">
+<h3>ORDERS-INFRA-002.2: Create <code class="docutils literal notranslate"><span class="pre">orders</span></code> PostgreSQL Schema — Orders Tables<a class="headerlink" href="#orders-infra-002-2-create-orders-postgresql-schema-orders-tables" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 5 — Building Block View (DB Client / schema-per-context)</p>
+<p>AS A developer
+I WANT <code class="docutils literal notranslate"><span class="pre">orders.orders</span></code> and <code class="docutils literal notranslate"><span class="pre">orders.order_items</span></code> tables created via migration
+SO THAT placed orders and their line items are persisted with correct constraints</p>
+<section id="scenario-1-migration-creates-orders-tables">
+<h4>SCENARIO 1: Migration creates orders tables<a class="headerlink" href="#scenario-1-migration-creates-orders-tables" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-002.2-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>A PostgreSQL instance is running</p></li>
+<li><p>Migration file <code class="docutils literal notranslate"><span class="pre">migrations/orders/002_create_orders.sql</span></code> exists</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The migration script is executed via <code class="docutils literal notranslate"><span class="pre">node-pg-migrate</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">orders.orders</span></code> exists with columns: <code class="docutils literal notranslate"><span class="pre">id</span></code> (UUID PK), <code class="docutils literal notranslate"><span class="pre">user_id</span></code> (UUID NOT NULL), <code class="docutils literal notranslate"><span class="pre">status</span></code> (VARCHAR, default <code class="docutils literal notranslate"><span class="pre">PENDING</span></code>), <code class="docutils literal notranslate"><span class="pre">total</span></code> (NUMERIC), <code class="docutils literal notranslate"><span class="pre">created_at</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">orders.order_items</span></code> exists with columns: <code class="docutils literal notranslate"><span class="pre">id</span></code> (UUID PK), <code class="docutils literal notranslate"><span class="pre">order_id</span></code> (UUID FK → orders.orders), <code class="docutils literal notranslate"><span class="pre">book_id</span></code> (UUID NOT NULL), <code class="docutils literal notranslate"><span class="pre">quantity</span></code> (INTEGER &gt; 0), <code class="docutils literal notranslate"><span class="pre">unit_price</span></code> (NUMERIC)</p></li>
+<li><p>A CHECK constraint on <code class="docutils literal notranslate"><span class="pre">orders.orders.status</span></code> allows only <code class="docutils literal notranslate"><span class="pre">PENDING</span></code>, <code class="docutils literal notranslate"><span class="pre">CONFIRMED</span></code>, <code class="docutils literal notranslate"><span class="pre">SHIPPED</span></code>, <code class="docutils literal notranslate"><span class="pre">DELIVERED</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-infra-002-3-configure-event-publishing-order-received">
+<h3>ORDERS-INFRA-002.3: Configure Event Publishing — Order Received<a class="headerlink" href="#orders-infra-002-3-configure-event-publishing-order-received" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 6 — Runtime View (6.1 Place Order)</p>
+<p>AS A developer
+I WANT an “order received” email job enqueued on the Redis Bull queue when an order is placed
+SO THAT the Notification Worker can send a confirmation email without blocking the order response</p>
+<section id="scenario-1-bull-job-enqueued-on-order-creation">
+<h4>SCENARIO 1: Bull job enqueued on order creation<a class="headerlink" href="#scenario-1-bull-job-enqueued-on-order-creation" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-002.3-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>Redis is running and the Bull queue <code class="docutils literal notranslate"><span class="pre">email-notifications</span></code> is configured</p></li>
+<li><p>An order is successfully created</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The Orders Service calls <code class="docutils literal notranslate"><span class="pre">NotificationsService.enqueue('order.received',</span> <span class="pre">{</span> <span class="pre">orderId,</span> <span class="pre">userId,</span> <span class="pre">items,</span> <span class="pre">total</span> <span class="pre">})</span></code> in-process</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A job is added to the <code class="docutils literal notranslate"><span class="pre">email-notifications</span></code> Bull queue in Redis</p></li>
+<li><p>The job payload contains <code class="docutils literal notranslate"><span class="pre">orderId</span></code>, <code class="docutils literal notranslate"><span class="pre">userId</span></code>, and order summary</p></li>
+<li><p>The HTTP response is returned to the client without waiting for the job to be processed</p></li>
+</ul>
+</section>
+<section id="scenario-2-email-queue-failure-does-not-fail-the-order">
+<h4>SCENARIO 2: Email queue failure does not fail the order<a class="headerlink" href="#scenario-2-email-queue-failure-does-not-fail-the-order" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-002.3-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>Redis is temporarily unavailable when the order is placed</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NotificationsService.enqueue(...)</span></code> throws an error</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The error is caught and logged</p></li>
+<li><p>The order creation transaction has already committed — the order is not rolled back</p></li>
+<li><p>Response is still <code class="docutils literal notranslate"><span class="pre">201</span> <span class="pre">Created</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orders-infra-002-4-setup-monitoring-and-observability">
+<h3>ORDERS-INFRA-002.4: Setup Monitoring and Observability<a class="headerlink" href="#orders-infra-002-4-setup-monitoring-and-observability" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 8 — Cross-cutting Concepts (8.3 Logging)</p>
+<p>AS A developer
+I WANT order placement logged with order ID and user ID
+SO THAT I can trace order creation and diagnose failures in production</p>
+<section id="id1">
+<h4>SCENARIO 1: Health check is reachable<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-002.4-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The API container is running</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">status:</span> <span class="pre">&quot;healthy&quot;,</span> <span class="pre">service:</span> <span class="pre">&quot;api&quot;,</span> <span class="pre">version:</span> <span class="pre">&quot;&lt;semver&gt;&quot;</span> <span class="pre">}</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-2-order-placement-logged-with-order-id">
+<h4>SCENARIO 2: Order placement logged with order ID<a class="headerlink" href="#scenario-2-order-placement-logged-with-order-id" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: ORDERS-INFRA-002.4-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>A customer places an order successfully</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The request completes</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A structured JSON log line is emitted with <code class="docutils literal notranslate"><span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">statusCode:</span> <span class="pre">201</span></code>, <code class="docutils literal notranslate"><span class="pre">responseTimeMs</span></code>, <code class="docutils literal notranslate"><span class="pre">orderId</span></code>, and <code class="docutils literal notranslate"><span class="pre">userId</span></code></p></li>
+<li><p>No book titles, prices, or customer names appear in the log line</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+                        
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Orders Domain — Story Bundles</a><ul>
+<li><a class="reference internal" href="#orders-story-001-manage-shopping-cart">ORDERS-STORY-001: Manage Shopping Cart</a><ul>
+<li><a class="reference internal" href="#scenario-1-add-a-book-to-the-cart">SCENARIO 1: Add a book to the cart</a></li>
+<li><a class="reference internal" href="#scenario-2-update-item-quantity">SCENARIO 2: Update item quantity</a></li>
+<li><a class="reference internal" href="#scenario-3-remove-an-item-from-the-cart">SCENARIO 3: Remove an item from the cart</a></li>
+<li><a class="reference internal" href="#scenario-4-view-current-cart">SCENARIO 4: View current cart</a></li>
+<li><a class="reference internal" href="#orders-fe-001-1-shopping-cart-ui">ORDERS-FE-001.1: Shopping Cart UI</a><ul>
+<li><a class="reference internal" href="#scenario-1-add-to-cart-from-catalog">SCENARIO 1: Add to cart from catalog</a></li>
+<li><a class="reference internal" href="#scenario-2-update-quantity-in-cart">SCENARIO 2: Update quantity in cart</a></li>
+<li><a class="reference internal" href="#scenario-3-remove-item-from-cart">SCENARIO 3: Remove item from cart</a></li>
+<li><a class="reference internal" href="#scenario-4-empty-cart-shows-prompt">SCENARIO 4: Empty cart shows prompt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-be-001-1-cart-management-api">ORDERS-BE-001.1: Cart Management API</a><ul>
+<li><a class="reference internal" href="#scenario-1-add-item-post-orders-cart-items">SCENARIO 1: Add item — POST /orders/cart/items</a></li>
+<li><a class="reference internal" href="#scenario-2-update-quantity-put-orders-cart-items-bookid">SCENARIO 2: Update quantity — PUT /orders/cart/items/:bookId</a></li>
+<li><a class="reference internal" href="#scenario-3-remove-item-delete-orders-cart-items-bookid">SCENARIO 3: Remove item — DELETE /orders/cart/items/:bookId</a></li>
+<li><a class="reference internal" href="#scenario-4-get-cart-get-orders-cart">SCENARIO 4: Get cart — GET /orders/cart</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-infra-001-1-deploy-api-service-as-docker-container">ORDERS-INFRA-001.1: Deploy API Service as Docker Container</a><ul>
+<li><a class="reference internal" href="#scenario-1-service-starts-and-cart-endpoint-is-reachable">SCENARIO 1: Service starts and cart endpoint is reachable</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-infra-001-2-create-orders-postgresql-schema-cart-tables">ORDERS-INFRA-001.2: Create <code class="docutils literal notranslate"><span class="pre">orders</span></code> PostgreSQL Schema — Cart Tables</a><ul>
+<li><a class="reference internal" href="#scenario-1-migration-creates-cart-items-table">SCENARIO 1: Migration creates cart_items table</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-infra-001-3-configure-inter-context-integration-point-catalog-orders">ORDERS-INFRA-001.3: Configure Inter-context Integration Point (Catalog → Orders)</a><ul>
+<li><a class="reference internal" href="#scenario-1-cart-total-uses-live-catalog-service-data">SCENARIO 1: Cart total uses live Catalog Service data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-infra-001-4-setup-monitoring-and-observability">ORDERS-INFRA-001.4: Setup Monitoring and Observability</a><ul>
+<li><a class="reference internal" href="#scenario-1-health-check-is-reachable">SCENARIO 1: Health check is reachable</a></li>
+<li><a class="reference internal" href="#scenario-2-cart-mutation-logged-with-user-id">SCENARIO 2: Cart mutation logged with user ID</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-story-002-place-an-order">ORDERS-STORY-002: Place an Order</a><ul>
+<li><a class="reference internal" href="#scenario-1-successful-order-placement">SCENARIO 1: Successful order placement</a></li>
+<li><a class="reference internal" href="#scenario-2-insufficient-stock-prevents-order">SCENARIO 2: Insufficient stock prevents order</a></li>
+<li><a class="reference internal" href="#scenario-3-empty-cart-cannot-be-checked-out">SCENARIO 3: Empty cart cannot be checked out</a></li>
+<li><a class="reference internal" href="#orders-fe-002-1-checkout-flow-ui">ORDERS-FE-002.1: Checkout Flow UI</a><ul>
+<li><a class="reference internal" href="#scenario-1-successful-checkout-transitions-to-payment">SCENARIO 1: Successful checkout transitions to payment</a></li>
+<li><a class="reference internal" href="#scenario-2-insufficient-stock-error-shown-inline">SCENARIO 2: Insufficient stock error shown inline</a></li>
+<li><a class="reference internal" href="#scenario-3-checkout-button-disabled-during-request">SCENARIO 3: Checkout button disabled during request</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-be-002-1-place-order-api-endpoint">ORDERS-BE-002.1: Place Order API Endpoint</a><ul>
+<li><a class="reference internal" href="#scenario-1-atomic-stock-decrement-and-order-creation">SCENARIO 1: Atomic stock decrement and order creation</a></li>
+<li><a class="reference internal" href="#scenario-2-concurrent-order-rolls-back-on-insufficient-stock">SCENARIO 2: Concurrent order rolls back on insufficient stock</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-infra-002-1-deploy-api-service-as-docker-container">ORDERS-INFRA-002.1: Deploy API Service as Docker Container</a><ul>
+<li><a class="reference internal" href="#scenario-1-full-order-placement-flow-works-in-docker">SCENARIO 1: Full order placement flow works in Docker</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-infra-002-2-create-orders-postgresql-schema-orders-tables">ORDERS-INFRA-002.2: Create <code class="docutils literal notranslate"><span class="pre">orders</span></code> PostgreSQL Schema — Orders Tables</a><ul>
+<li><a class="reference internal" href="#scenario-1-migration-creates-orders-tables">SCENARIO 1: Migration creates orders tables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-infra-002-3-configure-event-publishing-order-received">ORDERS-INFRA-002.3: Configure Event Publishing — Order Received</a><ul>
+<li><a class="reference internal" href="#scenario-1-bull-job-enqueued-on-order-creation">SCENARIO 1: Bull job enqueued on order creation</a></li>
+<li><a class="reference internal" href="#scenario-2-email-queue-failure-does-not-fail-the-order">SCENARIO 2: Email queue failure does not fail the order</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orders-infra-002-4-setup-monitoring-and-observability">ORDERS-INFRA-002.4: Setup Monitoring and Observability</a><ul>
+<li><a class="reference internal" href="#id1">SCENARIO 1: Health check is reachable</a></li>
+<li><a class="reference internal" href="#scenario-2-order-placement-logged-with-order-id">SCENARIO 2: Order placement logged with order ID</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2026, Luka Misojcic
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>Last updated: Apr 21, 2026</small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

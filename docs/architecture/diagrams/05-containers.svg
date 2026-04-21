@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="625px" preserveAspectRatio="none" style="width:1176px;height:625px;" version="1.1" viewBox="0 0 1176 625" width="1176px" zoomAndPan="magnify"><defs><filter height="300%" id="f1n55tabx6xfw0" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="338" x="422.5" y="19.2419">Container Diagram — Online Bookstore</text><!--MD5=[3f8579e0361a127062e851331fc08b6d]
+cluster Online Bookstore--><rect fill="#DAE8FC" filter="url(#f1n55tabx6xfw0)" height="433" style="stroke: #6C8EBF; stroke-width: 1.5;" width="520" x="22" y="181.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="103" x="230.5" y="196.3439">Online Bookstore</text><!--MD5=[33573e971ff506c0f246109ca3fd77bd]
+entity spa--><rect fill="#DAE8FC" filter="url(#f1n55tabx6xfw0)" height="69.0323" style="stroke: #6C8EBF; stroke-width: 1.5;" width="153" x="213.5" y="216.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="56" x="223.5" y="239.3439">React SPA</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="39" x="223.5" y="255.6881">[React]</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="133" x="223.5" y="272.0322">Customer and admin UI</text><!--MD5=[e2307af040e3f87d22824e7603ca28ec]
+entity api--><rect fill="#DAE8FC" filter="url(#f1n55tabx6xfw0)" height="69.0323" style="stroke: #6C8EBF; stroke-width: 1.5;" width="127" x="226.5" y="364.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="59" x="236.5" y="387.3439">API Server</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="107" x="236.5" y="403.6881">[Node.js + Express]</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="95" x="236.5" y="420.0322">All business logic</text><!--MD5=[d37e7b6e4e01e9dcb388f1477493d265]
+entity worker--><rect fill="#DAE8FC" filter="url(#f1n55tabx6xfw0)" height="69.0323" style="stroke: #6C8EBF; stroke-width: 1.5;" width="137" x="388.5" y="364.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="398.5" y="387.3439">Notification Worker</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="84" x="398.5" y="403.6881">[Node.js + Bull]</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="117" x="398.5" y="420.0322">Processes email jobs</text><!--MD5=[7468467f3b6b392f1d176d828c753b77]
+entity db--><path d="M38,522.5158 C38,512.5158 109,512.5158 109,512.5158 C109,512.5158 180,512.5158 180,522.5158 L180,588.7196 C180,598.7196 109,598.7196 109,598.7196 C109,598.7196 38,598.7196 38,588.7196 L38,522.5158 " fill="#FFF2CC" filter="url(#f1n55tabx6xfw0)" style="stroke: #D6B656; stroke-width: 1.5;"/><path d="M38,522.5158 C38,532.5158 109,532.5158 109,532.5158 C109,532.5158 180,532.5158 180,522.5158 " fill="none" style="stroke: #D6B656; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="77" x="48" y="551.4818">PostgreSQL</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="87" x="48" y="570.5497">[PostgreSQL]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="122" x="48" y="589.6176">Persistent storage</text><!--MD5=[de5dc476b5cd49b5a92d294ad2af7d70]
+entity redis--><path d="M273.5,522.5158 C273.5,512.5158 346,512.5158 346,512.5158 C346,512.5158 418.5,512.5158 418.5,522.5158 L418.5,588.7196 C418.5,598.7196 346,598.7196 346,598.7196 C346,598.7196 273.5,598.7196 273.5,588.7196 L273.5,522.5158 " fill="#FFF2CC" filter="url(#f1n55tabx6xfw0)" style="stroke: #D6B656; stroke-width: 1.5;"/><path d="M273.5,522.5158 C273.5,532.5158 346,532.5158 346,532.5158 C346,532.5158 418.5,532.5158 418.5,522.5158 " fill="none" style="stroke: #D6B656; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="37" x="283.5" y="551.4818">Redis</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="283.5" y="570.5497">[Redis]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="125" x="283.5" y="589.6176">Cache + job queue</text><!--MD5=[92848cbaf65985a669855153c5362c37]
+entity customer--><ellipse cx="230" cy="42.0158" fill="#D5E8D4" filter="url(#f1n55tabx6xfw0)" rx="8" ry="8" style="stroke: #82B366; stroke-width: 1.5;"/><path d="M230,50.0158 L230,77.0158 M217,58.0158 L243,58.0158 M230,77.0158 L217,92.0158 M230,77.0158 L243,92.0158 " fill="none" filter="url(#f1n55tabx6xfw0)" style="stroke: #82B366; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="65" x="197.5" y="112.4818">Customer</text><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
+entity admin--><ellipse cx="351" cy="42.0158" fill="#D5E8D4" filter="url(#f1n55tabx6xfw0)" rx="8" ry="8" style="stroke: #82B366; stroke-width: 1.5;"/><path d="M351,50.0158 L351,77.0158 M338,58.0158 L364,58.0158 M351,77.0158 L338,92.0158 M351,77.0158 L364,92.0158 " fill="none" filter="url(#f1n55tabx6xfw0)" style="stroke: #82B366; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="83" x="309.5" y="112.4818">Store Admin</text><!--MD5=[a29fe3b73bd7c5d5e80e6b5e6b2bebf6]
+entity stripe--><rect fill="#DAE8FC" filter="url(#f1n55tabx6xfw0)" height="52.6882" style="stroke: #6C8EBF; stroke-width: 1.5;" width="74" x="640" y="529.0158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="33" x="650" y="551.8439">Stripe</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="54" x="650" y="568.1881">[External]</text><!--MD5=[c3b7859e7187043933d1a0430eb79138]
+entity sendgrid--><rect fill="#DAE8FC" filter="url(#f1n55tabx6xfw0)" height="52.6882" style="stroke: #6C8EBF; stroke-width: 1.5;" width="74" x="1056" y="529.0158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="52" x="1066" y="551.8439">SendGrid</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="54" x="1066" y="568.1881">[External]</text><!--MD5=[b165ca7cce796f881c879adda4a6bef9]
+entity s3--><rect fill="#DAE8FC" filter="url(#f1n55tabx6xfw0)" height="52.6882" style="stroke: #6C8EBF; stroke-width: 1.5;" width="74" x="877" y="529.0158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="43" x="887" y="551.8439">AWS S3</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="54" x="887" y="568.1881">[External]</text><!--MD5=[42bca9335c471dd5687971eddc2ce696]
+link customer to spa--><path d="M222.67,116.7058 C221.42,132.3358 221.88,150.0858 227,165.5158 C232.59,182.3558 242.98,198.5658 253.74,212.1958 " fill="none" id="customer-&gt;spa" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="257.08,216.3458,254.5473,206.8282,253.9426,212.4527,248.3182,211.848,257.08,216.3458" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="228" y="161.4129">Uses [HTTPS]</text><!--MD5=[b7fb49ca0d0ea141f9ce6ef10b97d5bd]
+link admin to spa--><path d="M336.54,116.8658 C326.52,145.5458 313.26,183.4758 303.46,211.5058 " fill="none" id="admin-&gt;spa" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="301.8,216.2758,308.5321,209.0871,303.4409,211.5528,300.9752,206.4616,301.8,216.2758" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="326" y="161.4129">Uses [HTTPS]</text><!--MD5=[b20751f21bc3c5e56073fe913b5ac5ab]
+link spa to api--><path d="M290,285.8758 C290,307.8058 290,336.4258 290,359.2558 " fill="none" id="spa-&gt;api" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="290,364.3358,294,355.3358,290,359.3358,286,355.3358,290,364.3358" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="98" x="291" y="330.4129">API calls [HTTPS]</text><!--MD5=[1b9dbcfdb69d97b7ce5f2d963fc4ed75]
+link api to db--><path d="M226.45,402.7558 C182.84,408.3558 127.83,423.5558 99,463.5158 C89.98,476.0258 89.23,492.1258 91.78,507.2958 " fill="none" id="api-&gt;db" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="92.77,512.3958,95.0025,502.8034,91.8279,507.4854,87.1458,504.3108,92.77,512.3958" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="100" y="478.4129">Reads/writes [SQL]</text><!--MD5=[8172e6ad22289659f75b122a2876e358]
+link api to redis--><path d="M239.48,433.6058 C224.39,447.9458 214.18,465.3158 224,482.5158 C234.29,500.5358 251.04,514.4958 268.88,525.1158 " fill="none" id="api-&gt;redis" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="273.44,527.7458,267.647,519.7808,269.1103,525.2452,263.6459,526.7084,273.44,527.7458" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="136" x="225" y="478.4129">Cache + enqueue [TCP]</text><!--MD5=[eebddc328c59e5f8a1073deeb50a7d5f]
+link api to stripe--><path d="M353.68,427.7458 C359.48,429.8558 365.31,431.8158 371,433.5158 C438.63,453.7758 461.11,438.1358 527,463.5158 C538.48,467.9358 595.25,503.0458 635.55,528.3258 " fill="none" id="api-&gt;stripe" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="639.88,531.0558,634.3878,522.8805,635.6464,528.3956,630.1314,529.6542,639.88,531.0558" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="150" x="560" y="478.4129">Payment Intents [HTTPS]</text><!--MD5=[7dfefbe00b9b43d1bb1474457d5c093a]
+link stripe to api--><path d="M703.11,528.9158 C720.1,509.1958 736.17,482.2358 719,463.5158 C692.76,434.9158 408.71,442.7058 371,433.5158 C366.86,432.5058 362.65,431.3158 358.44,429.9958 " fill="none" id="stripe-&gt;api" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="353.5,428.3858,360.827,434.9673,358.2561,429.9284,363.295,427.3575,353.5,428.3858" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="114" x="727" y="478.4129">Webhooks [HTTPS]</text><!--MD5=[da012591248044a807f1ee2d6a751e92]
+link api to s3--><path d="M353.92,428.6858 C359.62,430.5558 365.37,432.2158 371,433.5158 C474.91,457.5558 756.93,411.4358 850,463.5158 C873.82,476.8458 890.84,503.1858 901.32,524.1158 " fill="none" id="api-&gt;s3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="903.58,528.7658,903.2083,518.924,901.3783,524.2767,896.0256,522.4467,903.58,528.7658" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="137" x="874" y="478.4129">Image storage [HTTPS]</text><!--MD5=[02b7018ef42244acca7279cb01943986]
+link worker to redis--><path d="M425.98,433.7858 C417.86,443.1558 409.33,453.5158 402,463.5158 C391.76,477.4758 381.54,493.3558 372.69,507.8958 " fill="none" id="worker-&gt;redis" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="369.99,512.3658,378.0643,506.7261,372.573,508.0847,371.2144,502.5934,369.99,512.3658" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="119" x="403" y="478.4129">Consume jobs [TCP]</text><!--MD5=[8bbe7cf37dc78a7706430538728e8856]
+link worker to sendgrid--><path d="M525.62,401.2958 C656.56,404.7658 936.48,417.5058 1020,463.5158 C1045.01,477.2958 1064.61,503.4958 1077.18,524.2558 " fill="none" id="worker-&gt;sendgrid" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1079.75,528.5958,1078.6119,518.813,1077.2049,524.2921,1071.7258,522.8851,1079.75,528.5958" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="121" x="1043" y="478.4129">Send emails [HTTPS]</text><!--MD5=[93f4e7679e067ca1048c47faf3611c2b]
+@startuml 05-containers
+title Container Diagram — Online Bookstore
+
+skinparam rectangle {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+  FontSize 12
+}
+skinparam database {
+  BackgroundColor #fff2cc
+  BorderColor #d6b656
+}
+skinparam actor {
+  BackgroundColor #d5e8d4
+  BorderColor #82b366
+}
+
+actor "Customer" as customer
+actor "Store Admin" as admin
+
+rectangle "Online Bookstore" {
+  rectangle "React SPA\n[React]\nCustomer and admin UI" as spa
+  rectangle "API Server\n[Node.js + Express]\nAll business logic" as api
+  rectangle "Notification Worker\n[Node.js + Bull]\nProcesses email jobs" as worker
+  database "PostgreSQL\n[PostgreSQL]\nPersistent storage" as db
+  database "Redis\n[Redis]\nCache + job queue" as redis
+}
+
+rectangle "Stripe\n[External]" as stripe
+rectangle "SendGrid\n[External]" as sendgrid
+rectangle "AWS S3\n[External]" as s3
+
+customer - -> spa : "Uses [HTTPS]"
+admin - -> spa : "Uses [HTTPS]"
+spa - -> api : "API calls [HTTPS]"
+api - -> db : "Reads/writes [SQL]"
+api - -> redis : "Cache + enqueue [TCP]"
+api - -> stripe : "Payment Intents [HTTPS]"
+api - -> s3 : "Image storage [HTTPS]"
+worker - -> redis : "Consume jobs [TCP]"
+worker - -> sendgrid : "Send emails [HTTPS]"
+stripe - -> api : "Webhooks [HTTPS]"
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 11:22:07 CET 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

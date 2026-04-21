@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Payment Domain — Story Bundles &mdash; Online Bookstore 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../genindex.html" />
+            <link rel="search" title="Search" href="../search.html" />
+            <link rel="top" title="Online Bookstore 1.0.0 documentation" href="#" />
+    </head>
+<body>
+    <script type="text/javascript" src="../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../_static/img/wagtail-logo-circle.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        Online Bookstore
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/01-introduction-and-goals.html">1. Introduction and Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/02-constraints.html">2. Architecture Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/03-context-and-scope.html">3. System Scope and Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/04-solution-strategy.html">4. Solution Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/05-building-block-view.html">5. Building Block View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/06-runtime-view.html">6. Runtime View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/07-deployment-view.html">7. Deployment View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/08-cross-cutting-concepts.html">8. Cross-cutting Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/09-architecture-decisions.html">9. Architecture Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/10-quality-requirements.html">10. Quality Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/11-risks-and-technical-debts.html">11. Risks and Technical Debts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/12-glossary.html">12. Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Stories:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">User Story Inventory — Online Bookstore</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Payment Domain — Story Bundles</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/misojca/sdp-powered-by-ai-agents-luka-misojcicuser-stories/payment.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../_sources/user-stories/payment.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="payment-domain-story-bundles">
+<h1>Payment Domain — Story Bundles<a class="headerlink" href="#payment-domain-story-bundles" title="Link to this heading">¶</a></h1>
+<hr class="docutils" />
+<section id="payment-story-001-initiate-stripe-payment">
+<h2>PAYMENT-STORY-001: Initiate Stripe Payment<a class="headerlink" href="#payment-story-001-initiate-stripe-payment" title="Link to this heading">¶</a></h2>
+<p><strong>Architecture Reference</strong>: Section 1 — Introduction and Goals (G-04)
+<strong>Priority</strong>: CORE
+<strong>Pareto</strong>: 20% core (delivers 80% value)</p>
+<p>AS A logged-in customer
+I WANT to initiate payment for my placed order via Stripe
+SO THAT I can complete my purchase securely without my card data touching the bookstore’s systems</p>
+<section id="scenario-1-payment-intent-created-successfully">
+<h3>SCENARIO 1: Payment Intent created successfully<a class="headerlink" href="#scenario-1-payment-intent-created-successfully" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: PAYMENT-STORY-001-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer has a <code class="docutils literal notranslate"><span class="pre">PENDING</span></code> order</p></li>
+<li><p>The customer is authenticated</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer proceeds to the payment page for that order</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The API creates a Stripe Payment Intent for the order total</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">client_secret</span></code> is returned to the SPA</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code> record is created with <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">=</span> <span class="pre">'CREATED'</span></code></p></li>
+<li><p>The customer’s card data never reaches the bookstore API</p></li>
+</ul>
+</section>
+<section id="scenario-2-order-not-found-or-not-owned-by-customer">
+<h3>SCENARIO 2: Order not found or not owned by customer<a class="headerlink" href="#scenario-2-order-not-found-or-not-owned-by-customer" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: PAYMENT-STORY-001-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The order ID does not exist or belongs to a different user</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer requests a Payment Intent for that order ID</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code></p></li>
+<li><p>No Stripe API call is made</p></li>
+</ul>
+</section>
+<section id="scenario-3-order-not-in-pending-state">
+<h3>SCENARIO 3: Order not in PENDING state<a class="headerlink" href="#scenario-3-order-not-in-pending-state" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: PAYMENT-STORY-001-S3</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The order exists but has status <code class="docutils literal notranslate"><span class="pre">CONFIRMED</span></code> or <code class="docutils literal notranslate"><span class="pre">SHIPPED</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer requests a Payment Intent for that order</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">409</span> <span class="pre">Conflict</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">error:</span> <span class="pre">&quot;Order</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">awaiting</span> <span class="pre">payment&quot;</span> <span class="pre">}</span></code></p></li>
+<li><p>No Stripe API call is made</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="payment-fe-001-1-payment-page-with-stripe-elements">
+<h3>PAYMENT-FE-001.1: Payment Page with Stripe Elements<a class="headerlink" href="#payment-fe-001-1-payment-page-with-stripe-elements" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 6 — Runtime View (6.1 Place Order)</p>
+<p>AS A logged-in customer
+I WANT a payment page that loads Stripe Elements using the <code class="docutils literal notranslate"><span class="pre">client_secret</span></code>
+SO THAT I can enter my card details directly in Stripe’s hosted UI without exposing them to the bookstore</p>
+<section id="scenario-1-payment-page-loads-stripe-elements">
+<h4>SCENARIO 1: Payment page loads Stripe Elements<a class="headerlink" href="#scenario-1-payment-page-loads-stripe-elements" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-FE-001.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer has been redirected to <code class="docutils literal notranslate"><span class="pre">/payment/:orderId</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The page loads</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/intents</span></code> request is made with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">orderId</span> <span class="pre">}</span></code></p></li>
+<li><p>The returned <code class="docutils literal notranslate"><span class="pre">client_secret</span></code> is used to initialise Stripe Elements</p></li>
+<li><p>The card input field is rendered inside a Stripe-hosted iframe</p></li>
+</ul>
+</section>
+<section id="scenario-2-customer-submits-card-details">
+<h4>SCENARIO 2: Customer submits card details<a class="headerlink" href="#scenario-2-customer-submits-card-details" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-FE-001.1-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>Stripe Elements is loaded with a valid <code class="docutils literal notranslate"><span class="pre">client_secret</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The customer enters valid card details and clicks “Pay”</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stripe.confirmCardPayment(clientSecret)</span></code> is called client-side directly with Stripe</p></li>
+<li><p>On success, the customer is redirected to <code class="docutils literal notranslate"><span class="pre">/orders/:orderId/confirmation</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-3-stripe-payment-failure-shown-to-customer">
+<h4>SCENARIO 3: Stripe payment failure shown to customer<a class="headerlink" href="#scenario-3-stripe-payment-failure-shown-to-customer" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-FE-001.1-S3</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer submits card details</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>Stripe returns a payment error (e.g., card declined)</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The Stripe error message is displayed below the card input</p></li>
+<li><p>The customer can retry without reloading the page</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-be-001-1-create-payment-intent-endpoint">
+<h3>PAYMENT-BE-001.1: Create Payment Intent Endpoint<a class="headerlink" href="#payment-be-001-1-create-payment-intent-endpoint" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 5 — Building Block View (Payment Router + Service)</p>
+<p>AS A frontend client
+I WANT a <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/intents</span></code> endpoint
+SO THAT a Stripe Payment Intent is created for a pending order and the <code class="docutils literal notranslate"><span class="pre">client_secret</span></code> is returned to the SPA</p>
+<section id="scenario-1-payment-intent-created-and-persisted">
+<h4>SCENARIO 1: Payment Intent created and persisted<a class="headerlink" href="#scenario-1-payment-intent-created-and-persisted" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-BE-001.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The order exists, belongs to the authenticated user, and has <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">=</span> <span class="pre">'PENDING'</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/intents</span></code> is called with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">orderId</span> <span class="pre">}</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Payment Service calls Stripe API: <code class="docutils literal notranslate"><span class="pre">stripe.paymentIntents.create({</span> <span class="pre">amount,</span> <span class="pre">currency:</span> <span class="pre">'usd',</span> <span class="pre">metadata:</span> <span class="pre">{</span> <span class="pre">orderId</span> <span class="pre">}</span> <span class="pre">})</span></code></p></li>
+<li><p>A row is inserted into <code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code>: <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">id,</span> <span class="pre">orderId,</span> <span class="pre">stripeIntentId,</span> <span class="pre">status:</span> <span class="pre">'CREATED'</span> <span class="pre">}</span></code></p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">201</span> <span class="pre">Created</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">clientSecret</span> <span class="pre">}</span></code></p></li>
+<li><p>Card data never passes through the bookstore API</p></li>
+</ul>
+</section>
+<section id="scenario-2-duplicate-intent-request-returns-existing-client-secret">
+<h4>SCENARIO 2: Duplicate intent request returns existing client_secret<a class="headerlink" href="#scenario-2-duplicate-intent-request-returns-existing-client-secret" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-BE-001.1-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>A Payment Intent already exists for the order in <code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/intents</span></code> is called again for the same order</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The existing <code class="docutils literal notranslate"><span class="pre">stripeIntentId</span></code> is retrieved from the DB</p></li>
+<li><p>Stripe API is called to retrieve the existing intent: <code class="docutils literal notranslate"><span class="pre">stripe.paymentIntents.retrieve(stripeIntentId)</span></code></p></li>
+<li><p>The existing <code class="docutils literal notranslate"><span class="pre">clientSecret</span></code> is returned — no duplicate intent is created</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-infra-001-1-deploy-api-service-as-docker-container">
+<h3>PAYMENT-INFRA-001.1: Deploy API Service as Docker Container<a class="headerlink" href="#payment-infra-001-1-deploy-api-service-as-docker-container" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 7 — Deployment View</p>
+<p>AS A developer
+I WANT the API running in Docker with Stripe credentials injected via environment variables
+SO THAT Payment Intent creation works correctly without hardcoded secrets</p>
+<section id="scenario-1-service-starts-with-stripe-key-configured">
+<h4>SCENARIO 1: Service starts with Stripe key configured<a class="headerlink" href="#scenario-1-service-starts-with-stripe-key-configured" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-001.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">STRIPE_SECRET_KEY</span></code> is set as an environment variable (sourced from AWS Secrets Manager in production)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">up</span></code> is executed</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The API starts</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The Stripe client is initialised with the injected key</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> returns <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">status:</span> <span class="pre">&quot;healthy&quot;,</span> <span class="pre">service:</span> <span class="pre">&quot;api&quot;</span> <span class="pre">}</span></code></p></li>
+<li><p>No Stripe key appears in logs or error responses</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-infra-001-2-create-payment-postgresql-schema">
+<h3>PAYMENT-INFRA-001.2: Create <code class="docutils literal notranslate"><span class="pre">payment</span></code> PostgreSQL Schema<a class="headerlink" href="#payment-infra-001-2-create-payment-postgresql-schema" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 5 — Building Block View (DB Client / schema-per-context)</p>
+<p>AS A developer
+I WANT the <code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code> table created via migration
+SO THAT Payment Intent records are persisted for idempotency and webhook correlation</p>
+<section id="scenario-1-migration-creates-payment-intents-table">
+<h4>SCENARIO 1: Migration creates payment_intents table<a class="headerlink" href="#scenario-1-migration-creates-payment-intents-table" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-001.2-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>A PostgreSQL instance is running</p></li>
+<li><p>Migration file <code class="docutils literal notranslate"><span class="pre">migrations/payment/001_create_payment_intents.sql</span></code> exists</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The migration script is executed via <code class="docutils literal notranslate"><span class="pre">node-pg-migrate</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code> exists with columns: <code class="docutils literal notranslate"><span class="pre">id</span></code> (UUID PK), <code class="docutils literal notranslate"><span class="pre">order_id</span></code> (UUID UNIQUE NOT NULL), <code class="docutils literal notranslate"><span class="pre">stripe_intent_id</span></code> (VARCHAR UNIQUE NOT NULL), <code class="docutils literal notranslate"><span class="pre">status</span></code> (VARCHAR, default <code class="docutils literal notranslate"><span class="pre">CREATED</span></code>), <code class="docutils literal notranslate"><span class="pre">created_at</span></code></p></li>
+<li><p>A UNIQUE constraint on <code class="docutils literal notranslate"><span class="pre">order_id</span></code> prevents duplicate intents per order</p></li>
+<li><p>A CHECK constraint on <code class="docutils literal notranslate"><span class="pre">status</span></code> allows only <code class="docutils literal notranslate"><span class="pre">CREATED</span></code>, <code class="docutils literal notranslate"><span class="pre">SUCCEEDED</span></code>, <code class="docutils literal notranslate"><span class="pre">FAILED</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-infra-001-3-configure-stripe-integration">
+<h3>PAYMENT-INFRA-001.3: Configure Stripe Integration<a class="headerlink" href="#payment-infra-001-3-configure-stripe-integration" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 9 — Architecture Decisions (ADR-004)</p>
+<p>AS A developer
+I WANT the Stripe SDK configured with the secret key from environment variables
+SO THAT Payment Intents can be created and the bookstore never handles raw card data</p>
+<section id="scenario-1-stripe-client-initialised-at-startup">
+<h4>SCENARIO 1: Stripe client initialised at startup<a class="headerlink" href="#scenario-1-stripe-client-initialised-at-startup" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-001.3-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">STRIPE_SECRET_KEY</span></code> environment variable is set</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The API process starts</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The Stripe Node.js SDK is initialised: <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">Stripe(process.env.STRIPE_SECRET_KEY)</span></code></p></li>
+<li><p>The Payment Service uses this client for all Stripe API calls</p></li>
+<li><p>No key value appears in application logs</p></li>
+</ul>
+</section>
+<section id="scenario-2-stripe-api-error-is-handled-gracefully">
+<h4>SCENARIO 2: Stripe API error is handled gracefully<a class="headerlink" href="#scenario-2-stripe-api-error-is-handled-gracefully" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-001.3-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The Stripe API returns an error (e.g., invalid key, network timeout)</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/intents</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The error is caught by the global error handler</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">502</span> <span class="pre">Bad</span> <span class="pre">Gateway</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">error:</span> <span class="pre">&quot;Payment</span> <span class="pre">service</span> <span class="pre">unavailable&quot;</span> <span class="pre">}</span></code></p></li>
+<li><p>The raw Stripe error is logged server-side but not exposed to the client</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-infra-001-4-setup-monitoring-and-observability">
+<h3>PAYMENT-INFRA-001.4: Setup Monitoring and Observability<a class="headerlink" href="#payment-infra-001-4-setup-monitoring-and-observability" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 8 — Cross-cutting Concepts (8.3 Logging)</p>
+<p>AS A developer
+I WANT Payment Intent creation logged with order ID and Stripe intent ID
+SO THAT I can correlate payment events with orders in production without exposing sensitive data</p>
+<section id="scenario-1-health-check-is-reachable">
+<h4>SCENARIO 1: Health check is reachable<a class="headerlink" href="#scenario-1-health-check-is-reachable" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-001.4-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The API container is running</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">status:</span> <span class="pre">&quot;healthy&quot;,</span> <span class="pre">service:</span> <span class="pre">&quot;api&quot;,</span> <span class="pre">version:</span> <span class="pre">&quot;&lt;semver&gt;&quot;</span> <span class="pre">}</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-2-payment-intent-creation-logged">
+<h4>SCENARIO 2: Payment Intent creation logged<a class="headerlink" href="#scenario-2-payment-intent-creation-logged" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-001.4-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>A Payment Intent is successfully created</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The request completes</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A structured JSON log line is emitted with <code class="docutils literal notranslate"><span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">statusCode:</span> <span class="pre">201</span></code>, <code class="docutils literal notranslate"><span class="pre">responseTimeMs</span></code>, <code class="docutils literal notranslate"><span class="pre">orderId</span></code>, and <code class="docutils literal notranslate"><span class="pre">stripeIntentId</span></code></p></li>
+<li><p>No <code class="docutils literal notranslate"><span class="pre">clientSecret</span></code>, card data, or customer PII appears in the log</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-story-002-handle-stripe-webhook-payment-confirmation">
+<h2>PAYMENT-STORY-002: Handle Stripe Webhook (Payment Confirmation)<a class="headerlink" href="#payment-story-002-handle-stripe-webhook-payment-confirmation" title="Link to this heading">¶</a></h2>
+<p><strong>Architecture Reference</strong>: Section 6 — Runtime View (6.2 Payment Webhook)
+<strong>Priority</strong>: CORE
+<strong>Pareto</strong>: 20% core (delivers 80% value)</p>
+<p>AS A system
+I WANT to receive and verify Stripe webhook events for <code class="docutils literal notranslate"><span class="pre">payment_intent.succeeded</span></code>
+SO THAT confirmed payments automatically transition orders from <code class="docutils literal notranslate"><span class="pre">PENDING</span></code> to <code class="docutils literal notranslate"><span class="pre">CONFIRMED</span></code> and trigger a confirmation email</p>
+<section id="scenario-1-successful-webhook-transitions-order-to-confirmed">
+<h3>SCENARIO 1: Successful webhook transitions order to CONFIRMED<a class="headerlink" href="#scenario-1-successful-webhook-transitions-order-to-confirmed" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: PAYMENT-STORY-002-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">PENDING</span></code> order exists with a matching Payment Intent</p></li>
+<li><p>Stripe sends a <code class="docutils literal notranslate"><span class="pre">payment_intent.succeeded</span></code> webhook with a valid signature</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/webhook</span></code> receives the event</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The Stripe signature is verified using <code class="docutils literal notranslate"><span class="pre">STRIPE_WEBHOOK_SECRET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code> status is updated to <code class="docutils literal notranslate"><span class="pre">SUCCEEDED</span></code></p></li>
+<li><p>Orders Service is called in-process to transition the order to <code class="docutils literal notranslate"><span class="pre">CONFIRMED</span></code></p></li>
+<li><p>Notifications Service enqueues an “order confirmed” Bull job</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-2-invalid-stripe-signature-rejected">
+<h3>SCENARIO 2: Invalid Stripe signature rejected<a class="headerlink" href="#scenario-2-invalid-stripe-signature-rejected" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: PAYMENT-STORY-002-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>A request arrives at <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/webhook</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The Stripe signature header is missing or does not match <code class="docutils literal notranslate"><span class="pre">STRIPE_WEBHOOK_SECRET</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code></p></li>
+<li><p>No order state change occurs</p></li>
+<li><p>The rejection is logged with the request metadata</p></li>
+</ul>
+</section>
+<section id="scenario-3-duplicate-webhook-is-ignored-idempotency">
+<h3>SCENARIO 3: Duplicate webhook is ignored (idempotency)<a class="headerlink" href="#scenario-3-duplicate-webhook-is-ignored-idempotency" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario ID</strong>: PAYMENT-STORY-002-S3</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The webhook for a given <code class="docutils literal notranslate"><span class="pre">stripeIntentId</span></code> has already been processed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payment.payment_intents.status</span></code> is already <code class="docutils literal notranslate"><span class="pre">SUCCEEDED</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>Stripe re-delivers the same <code class="docutils literal notranslate"><span class="pre">payment_intent.succeeded</span></code> event</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The handler detects the intent is already <code class="docutils literal notranslate"><span class="pre">SUCCEEDED</span></code></p></li>
+<li><p>No duplicate order transition or email job is created</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> (idempotent acknowledgement)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="payment-fe-002-1-order-confirmation-page">
+<h3>PAYMENT-FE-002.1: Order Confirmation Page<a class="headerlink" href="#payment-fe-002-1-order-confirmation-page" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 6 — Runtime View (6.2 Payment Webhook)</p>
+<p>AS A customer
+I WANT to see an order confirmation page after payment succeeds
+SO THAT I know my order has been placed and I will receive a confirmation email</p>
+<section id="scenario-1-confirmation-page-shows-order-summary">
+<h4>SCENARIO 1: Confirmation page shows order summary<a class="headerlink" href="#scenario-1-confirmation-page-shows-order-summary" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-FE-002.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>Stripe has confirmed the payment client-side</p></li>
+<li><p>The customer is redirected to <code class="docutils literal notranslate"><span class="pre">/orders/:orderId/confirmation</span></code></p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The page loads</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/orders/:orderId</span></code> request is made</p></li>
+<li><p>The page displays order ID, items, total, and status (<code class="docutils literal notranslate"><span class="pre">CONFIRMED</span></code> once webhook has processed, or <code class="docutils literal notranslate"><span class="pre">PENDING</span></code> if webhook is still in flight)</p></li>
+<li><p>A message is shown: “Your order is confirmed. A confirmation email is on its way.”</p></li>
+</ul>
+</section>
+<section id="scenario-2-polling-handles-webhook-processing-delay">
+<h4>SCENARIO 2: Polling handles webhook processing delay<a class="headerlink" href="#scenario-2-polling-handles-webhook-processing-delay" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-FE-002.1-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The customer lands on the confirmation page</p></li>
+<li><p>The order status is still <code class="docutils literal notranslate"><span class="pre">PENDING</span></code> (webhook not yet processed)</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The page polls <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/orders/:orderId</span></code> every 3 seconds (max 5 attempts)</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Once status becomes <code class="docutils literal notranslate"><span class="pre">CONFIRMED</span></code>, the UI updates to show the confirmed state</p></li>
+<li><p>If status remains <code class="docutils literal notranslate"><span class="pre">PENDING</span></code> after all attempts, a message is shown: “Payment received — your order is being confirmed.”</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-be-002-1-stripe-webhook-endpoint">
+<h3>PAYMENT-BE-002.1: Stripe Webhook Endpoint<a class="headerlink" href="#payment-be-002-1-stripe-webhook-endpoint" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 5 — Building Block View (Payment Router + Service)</p>
+<p>AS A Stripe webhook consumer
+I WANT a <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/webhook</span></code> endpoint that verifies signatures and processes <code class="docutils literal notranslate"><span class="pre">payment_intent.succeeded</span></code> events
+SO THAT order confirmation is driven by authoritative Stripe events, not client-side callbacks</p>
+<section id="scenario-1-verified-webhook-updates-order-state">
+<h4>SCENARIO 1: Verified webhook updates order state<a class="headerlink" href="#scenario-1-verified-webhook-updates-order-state" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-BE-002.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The raw request body and <code class="docutils literal notranslate"><span class="pre">stripe-signature</span></code> header are available</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STRIPE_WEBHOOK_SECRET</span></code> is set in the environment</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/webhook</span></code> receives a <code class="docutils literal notranslate"><span class="pre">payment_intent.succeeded</span></code> event</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stripe.webhooks.constructEvent(rawBody,</span> <span class="pre">sig,</span> <span class="pre">secret)</span></code> succeeds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code> row is updated: <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">=</span> <span class="pre">'SUCCEEDED'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OrdersService.confirmOrder(orderId)</span></code> is called in-process: order status → <code class="docutils literal notranslate"><span class="pre">CONFIRMED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NotificationsService.enqueue('order.confirmed',</span> <span class="pre">{</span> <span class="pre">orderId,</span> <span class="pre">userId</span> <span class="pre">})</span></code> is called</p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-2-signature-verification-failure-returns-400">
+<h4>SCENARIO 2: Signature verification failure returns 400<a class="headerlink" href="#scenario-2-signature-verification-failure-returns-400" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-BE-002.1-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">stripe-signature</span></code> header is absent or tampered</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payment/webhook</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stripe.webhooks.constructEvent</span></code> throws a <code class="docutils literal notranslate"><span class="pre">StripeSignatureVerificationError</span></code></p></li>
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">error:</span> <span class="pre">&quot;Invalid</span> <span class="pre">webhook</span> <span class="pre">signature&quot;</span> <span class="pre">}</span></code></p></li>
+<li><p>No state change occurs</p></li>
+</ul>
+</section>
+<section id="scenario-3-raw-body-parsing-preserved-for-signature-verification">
+<h4>SCENARIO 3: Raw body parsing preserved for signature verification<a class="headerlink" href="#scenario-3-raw-body-parsing-preserved-for-signature-verification" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-BE-002.1-S3</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>Express is configured with <code class="docutils literal notranslate"><span class="pre">express.json()</span></code> globally</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The webhook route is registered</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">/payment/webhook</span></code> route uses <code class="docutils literal notranslate"><span class="pre">express.raw({</span> <span class="pre">type:</span> <span class="pre">'application/json'</span> <span class="pre">})</span></code> middleware instead of <code class="docutils literal notranslate"><span class="pre">express.json()</span></code></p></li>
+<li><p>The raw buffer is passed to <code class="docutils literal notranslate"><span class="pre">stripe.webhooks.constructEvent</span></code> unchanged</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-infra-002-1-deploy-api-service-as-docker-container">
+<h3>PAYMENT-INFRA-002.1: Deploy API Service as Docker Container<a class="headerlink" href="#payment-infra-002-1-deploy-api-service-as-docker-container" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 7 — Deployment View</p>
+<p>AS A developer
+I WANT <code class="docutils literal notranslate"><span class="pre">STRIPE_WEBHOOK_SECRET</span></code> injected as an environment variable
+SO THAT webhook signature verification works correctly in all environments</p>
+<section id="scenario-1-webhook-endpoint-reachable-with-correct-middleware">
+<h4>SCENARIO 1: Webhook endpoint reachable with correct middleware<a class="headerlink" href="#scenario-1-webhook-endpoint-reachable-with-correct-middleware" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-002.1-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">STRIPE_SECRET_KEY</span></code> and <code class="docutils literal notranslate"><span class="pre">STRIPE_WEBHOOK_SECRET</span></code> are set as environment variables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">up</span></code> is executed</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>A POST request with a valid Stripe signature is sent to <code class="docutils literal notranslate"><span class="pre">/payment/webhook</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The raw body is preserved for signature verification</p></li>
+<li><p>The event is processed and <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> is returned</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> returns <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-infra-002-2-update-payment-postgresql-schema-for-webhook-idempotency">
+<h3>PAYMENT-INFRA-002.2: Update <code class="docutils literal notranslate"><span class="pre">payment</span></code> PostgreSQL Schema for Webhook Idempotency<a class="headerlink" href="#payment-infra-002-2-update-payment-postgresql-schema-for-webhook-idempotency" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 11 — Risks and Technical Debts (R-05)</p>
+<p>AS A developer
+I WANT the <code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code> table to support idempotent webhook processing
+SO THAT duplicate Stripe webhook deliveries do not cause duplicate order confirmations</p>
+<section id="scenario-1-duplicate-webhook-detected-via-status-check">
+<h4>SCENARIO 1: Duplicate webhook detected via status check<a class="headerlink" href="#scenario-1-duplicate-webhook-detected-via-status-check" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-002.2-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code> has a UNIQUE constraint on <code class="docutils literal notranslate"><span class="pre">stripe_intent_id</span></code></p></li>
+<li><p>A row with <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">=</span> <span class="pre">'SUCCEEDED'</span></code> already exists for the intent</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The webhook handler queries <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">status</span> <span class="pre">FROM</span> <span class="pre">payment.payment_intents</span> <span class="pre">WHERE</span> <span class="pre">stripe_intent_id</span> <span class="pre">=</span> <span class="pre">$1</span></code></p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>The existing <code class="docutils literal notranslate"><span class="pre">SUCCEEDED</span></code> status is detected</p></li>
+<li><p>The handler returns early without updating orders or enqueuing a job</p></li>
+<li><p>No migration change is required — the existing schema from PAYMENT-INFRA-001.2 is sufficient</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-infra-002-3-configure-webhook-event-flow-stripe-orders-notifications">
+<h3>PAYMENT-INFRA-002.3: Configure Webhook Event Flow (Stripe → Orders → Notifications)<a class="headerlink" href="#payment-infra-002-3-configure-webhook-event-flow-stripe-orders-notifications" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 6 — Runtime View (6.2 Payment Webhook)</p>
+<p>AS A developer
+I WANT the webhook handler to orchestrate the full confirmation flow in-process
+SO THAT order confirmation and email notification are triggered reliably from a single authoritative event</p>
+<section id="scenario-1-full-webhook-flow-executes-in-correct-order">
+<h4>SCENARIO 1: Full webhook flow executes in correct order<a class="headerlink" href="#scenario-1-full-webhook-flow-executes-in-correct-order" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-002.3-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The API is running with Stripe and Redis configured</p></li>
+<li><p>A valid <code class="docutils literal notranslate"><span class="pre">payment_intent.succeeded</span></code> webhook is received</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The Payment Service processes the event</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Step 1: Stripe signature verified</p></li>
+<li><p>Step 2: <code class="docutils literal notranslate"><span class="pre">payment.payment_intents</span></code> status updated to <code class="docutils literal notranslate"><span class="pre">SUCCEEDED</span></code></p></li>
+<li><p>Step 3: <code class="docutils literal notranslate"><span class="pre">OrdersService.confirmOrder(orderId)</span></code> transitions order to <code class="docutils literal notranslate"><span class="pre">CONFIRMED</span></code></p></li>
+<li><p>Step 4: <code class="docutils literal notranslate"><span class="pre">NotificationsService.enqueue('order.confirmed',</span> <span class="pre">payload)</span></code> adds job to Bull queue</p></li>
+<li><p>All steps complete before <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> is returned to Stripe</p></li>
+<li><p>If Step 4 fails (Redis down), the error is logged but steps 1–3 are not rolled back</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="payment-infra-002-4-setup-monitoring-and-observability">
+<h3>PAYMENT-INFRA-002.4: Setup Monitoring and Observability<a class="headerlink" href="#payment-infra-002-4-setup-monitoring-and-observability" title="Link to this heading">¶</a></h3>
+<p><strong>Architecture Reference</strong>: Section 8 — Cross-cutting Concepts (8.3 Logging)</p>
+<p>AS A developer
+I WANT webhook events logged with intent ID and outcome
+SO THAT I can audit payment confirmations and diagnose signature failures in production</p>
+<section id="id1">
+<h4>SCENARIO 1: Health check is reachable<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-002.4-S1</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>The API container is running</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> is called</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>Response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> with <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">status:</span> <span class="pre">&quot;healthy&quot;,</span> <span class="pre">service:</span> <span class="pre">&quot;api&quot;,</span> <span class="pre">version:</span> <span class="pre">&quot;&lt;semver&gt;&quot;</span> <span class="pre">}</span></code></p></li>
+</ul>
+</section>
+<section id="scenario-2-webhook-processing-logged-with-outcome">
+<h4>SCENARIO 2: Webhook processing logged with outcome<a class="headerlink" href="#scenario-2-webhook-processing-logged-with-outcome" title="Link to this heading">¶</a></h4>
+<p><strong>Scenario ID</strong>: PAYMENT-INFRA-002.4-S2</p>
+<p><strong>GIVEN</strong></p>
+<ul class="simple">
+<li><p>A webhook event is received and processed</p></li>
+</ul>
+<p><strong>WHEN</strong></p>
+<ul class="simple">
+<li><p>The handler completes (success, duplicate, or signature failure)</p></li>
+</ul>
+<p><strong>THEN</strong></p>
+<ul class="simple">
+<li><p>A structured JSON log line is emitted with <code class="docutils literal notranslate"><span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">statusCode</span></code>, <code class="docutils literal notranslate"><span class="pre">responseTimeMs</span></code>, <code class="docutils literal notranslate"><span class="pre">stripeIntentId</span></code>, and <code class="docutils literal notranslate"><span class="pre">outcome</span></code> (<code class="docutils literal notranslate"><span class="pre">confirmed</span></code> | <code class="docutils literal notranslate"><span class="pre">duplicate</span></code> | <code class="docutils literal notranslate"><span class="pre">signature_invalid</span></code>)</p></li>
+<li><p>No card data, customer name, or email appears in the log</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+                        
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Payment Domain — Story Bundles</a><ul>
+<li><a class="reference internal" href="#payment-story-001-initiate-stripe-payment">PAYMENT-STORY-001: Initiate Stripe Payment</a><ul>
+<li><a class="reference internal" href="#scenario-1-payment-intent-created-successfully">SCENARIO 1: Payment Intent created successfully</a></li>
+<li><a class="reference internal" href="#scenario-2-order-not-found-or-not-owned-by-customer">SCENARIO 2: Order not found or not owned by customer</a></li>
+<li><a class="reference internal" href="#scenario-3-order-not-in-pending-state">SCENARIO 3: Order not in PENDING state</a></li>
+<li><a class="reference internal" href="#payment-fe-001-1-payment-page-with-stripe-elements">PAYMENT-FE-001.1: Payment Page with Stripe Elements</a><ul>
+<li><a class="reference internal" href="#scenario-1-payment-page-loads-stripe-elements">SCENARIO 1: Payment page loads Stripe Elements</a></li>
+<li><a class="reference internal" href="#scenario-2-customer-submits-card-details">SCENARIO 2: Customer submits card details</a></li>
+<li><a class="reference internal" href="#scenario-3-stripe-payment-failure-shown-to-customer">SCENARIO 3: Stripe payment failure shown to customer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-be-001-1-create-payment-intent-endpoint">PAYMENT-BE-001.1: Create Payment Intent Endpoint</a><ul>
+<li><a class="reference internal" href="#scenario-1-payment-intent-created-and-persisted">SCENARIO 1: Payment Intent created and persisted</a></li>
+<li><a class="reference internal" href="#scenario-2-duplicate-intent-request-returns-existing-client-secret">SCENARIO 2: Duplicate intent request returns existing client_secret</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-infra-001-1-deploy-api-service-as-docker-container">PAYMENT-INFRA-001.1: Deploy API Service as Docker Container</a><ul>
+<li><a class="reference internal" href="#scenario-1-service-starts-with-stripe-key-configured">SCENARIO 1: Service starts with Stripe key configured</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-infra-001-2-create-payment-postgresql-schema">PAYMENT-INFRA-001.2: Create <code class="docutils literal notranslate"><span class="pre">payment</span></code> PostgreSQL Schema</a><ul>
+<li><a class="reference internal" href="#scenario-1-migration-creates-payment-intents-table">SCENARIO 1: Migration creates payment_intents table</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-infra-001-3-configure-stripe-integration">PAYMENT-INFRA-001.3: Configure Stripe Integration</a><ul>
+<li><a class="reference internal" href="#scenario-1-stripe-client-initialised-at-startup">SCENARIO 1: Stripe client initialised at startup</a></li>
+<li><a class="reference internal" href="#scenario-2-stripe-api-error-is-handled-gracefully">SCENARIO 2: Stripe API error is handled gracefully</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-infra-001-4-setup-monitoring-and-observability">PAYMENT-INFRA-001.4: Setup Monitoring and Observability</a><ul>
+<li><a class="reference internal" href="#scenario-1-health-check-is-reachable">SCENARIO 1: Health check is reachable</a></li>
+<li><a class="reference internal" href="#scenario-2-payment-intent-creation-logged">SCENARIO 2: Payment Intent creation logged</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-story-002-handle-stripe-webhook-payment-confirmation">PAYMENT-STORY-002: Handle Stripe Webhook (Payment Confirmation)</a><ul>
+<li><a class="reference internal" href="#scenario-1-successful-webhook-transitions-order-to-confirmed">SCENARIO 1: Successful webhook transitions order to CONFIRMED</a></li>
+<li><a class="reference internal" href="#scenario-2-invalid-stripe-signature-rejected">SCENARIO 2: Invalid Stripe signature rejected</a></li>
+<li><a class="reference internal" href="#scenario-3-duplicate-webhook-is-ignored-idempotency">SCENARIO 3: Duplicate webhook is ignored (idempotency)</a></li>
+<li><a class="reference internal" href="#payment-fe-002-1-order-confirmation-page">PAYMENT-FE-002.1: Order Confirmation Page</a><ul>
+<li><a class="reference internal" href="#scenario-1-confirmation-page-shows-order-summary">SCENARIO 1: Confirmation page shows order summary</a></li>
+<li><a class="reference internal" href="#scenario-2-polling-handles-webhook-processing-delay">SCENARIO 2: Polling handles webhook processing delay</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-be-002-1-stripe-webhook-endpoint">PAYMENT-BE-002.1: Stripe Webhook Endpoint</a><ul>
+<li><a class="reference internal" href="#scenario-1-verified-webhook-updates-order-state">SCENARIO 1: Verified webhook updates order state</a></li>
+<li><a class="reference internal" href="#scenario-2-signature-verification-failure-returns-400">SCENARIO 2: Signature verification failure returns 400</a></li>
+<li><a class="reference internal" href="#scenario-3-raw-body-parsing-preserved-for-signature-verification">SCENARIO 3: Raw body parsing preserved for signature verification</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-infra-002-1-deploy-api-service-as-docker-container">PAYMENT-INFRA-002.1: Deploy API Service as Docker Container</a><ul>
+<li><a class="reference internal" href="#scenario-1-webhook-endpoint-reachable-with-correct-middleware">SCENARIO 1: Webhook endpoint reachable with correct middleware</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-infra-002-2-update-payment-postgresql-schema-for-webhook-idempotency">PAYMENT-INFRA-002.2: Update <code class="docutils literal notranslate"><span class="pre">payment</span></code> PostgreSQL Schema for Webhook Idempotency</a><ul>
+<li><a class="reference internal" href="#scenario-1-duplicate-webhook-detected-via-status-check">SCENARIO 1: Duplicate webhook detected via status check</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-infra-002-3-configure-webhook-event-flow-stripe-orders-notifications">PAYMENT-INFRA-002.3: Configure Webhook Event Flow (Stripe → Orders → Notifications)</a><ul>
+<li><a class="reference internal" href="#scenario-1-full-webhook-flow-executes-in-correct-order">SCENARIO 1: Full webhook flow executes in correct order</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#payment-infra-002-4-setup-monitoring-and-observability">PAYMENT-INFRA-002.4: Setup Monitoring and Observability</a><ul>
+<li><a class="reference internal" href="#id1">SCENARIO 1: Health check is reachable</a></li>
+<li><a class="reference internal" href="#scenario-2-webhook-processing-logged-with-outcome">SCENARIO 2: Webhook processing logged with outcome</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2026, Luka Misojcic
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>Last updated: Apr 21, 2026</small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
