@@ -2,18 +2,20 @@ name: CI
 
 on:
   push:
-    branches: [main, 'feature/**', 'fix/**', 'hotfix/**', 'chore/**']
+    branches: [master, 'feature/**', 'fix/**', 'hotfix/**', 'chore/**', 'feat/**']
     paths:
+      - 'src/**'
       - 'tests/**'
       - 'Dockerfile'
-      - 'pyproject.toml'
+      - 'package*.json'
       - '.github/workflows/ci.yml'
   pull_request:
-    branches: [main]
+    branches: [master]
     paths:
+      - 'src/**'
       - 'tests/**'
       - 'Dockerfile'
-      - 'pyproject.toml'
+      - 'package*.json'
       - '.github/workflows/ci.yml'
 
 permissions:
@@ -22,7 +24,6 @@ permissions:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
