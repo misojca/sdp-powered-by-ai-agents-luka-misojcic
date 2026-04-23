@@ -15,7 +15,7 @@ on:
       - 'docs/**'
 
   # TODO: Uncomment to allow manual trigger
-  # workflow_dispatch:
+  workflow_dispatch:
 
 permissions:
   contents: read
